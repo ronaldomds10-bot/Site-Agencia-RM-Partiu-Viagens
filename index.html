@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RM Partiu Viagens</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--orange:#FF6500;--orange2:#E05500;--gold:#C9960A;--gold-light:#F2C200;--gold-pale:#FFFAEC;--dark:#150A00;--dark2:#2A1500;--text:#2C1800}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+
+/* FLOATING WHATSAPP */
+.float-wa{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 4px 24px rgba(37,211,102,.5);transition:transform .2s}
+.float-wa:hover{transform:scale(1.12)}
+
+/* NAV */
+nav{background:var(--dark);padding:.9rem 2.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(200,150,10,.15)}
+.logo-nav{display:flex;align-items:center;gap:12px;cursor:pointer}
+.logo-rm{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;background:linear-gradient(120deg,#F2C200 0%,#C9960A 50%,#F2C200 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.logo-tagline{font-size:9px;color:#C9960A;letter-spacing:3.5px;font-weight:600;margin-top:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12.5px;letter-spacing:1.2px;font-weight:500;transition:color .3s;text-transform:uppercase}
+.nav-links a:hover{color:#F2C200}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-ig{color:#C9960A;font-size:13px;text-decoration:none;border:1px solid rgba(200,150,10,.3);padding:8px 16px;border-radius:30px;transition:all .2s;letter-spacing:.5px}
+.nav-ig:hover{border-color:#F2C200;color:#F2C200}
+.nav-cta{background:linear-gradient(120deg,#F2C200,#C9960A);color:#150A00;padding:10px 22px;border:none;border-radius:30px;font-weight:700;font-size:12px;cursor:pointer;letter-spacing:1px;transition:transform .2s;text-transform:uppercase}
+.nav-cta:hover{transform:scale(1.05)}
+
+/* HERO */
+.hero{background:linear-gradient(150deg,#FF6500 0%,#CC4400 35%,#150A00 100%);min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:5rem 2rem 6rem}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:28px 28px}
+.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(242,194,0,.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-plane{position:absolute;font-size:180px;opacity:.05;right:-30px;top:50%;transform:translateY(-50%);animation:planefly 8s ease-in-out infinite}
+@keyframes planefly{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-55%) translateX(-12px)}}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-badge{background:rgba(242,194,0,.12);border:1px solid rgba(242,194,0,.35);color:#F2C200;padding:7px 22px;border-radius:40px;font-size:11.5px;letter-spacing:2.5px;font-weight:600;display:inline-block;margin-bottom:1.8rem;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,8vw,5.2rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:1.2rem}
+.hero h1 em{font-style:italic;background:linear-gradient(120deg,#F2C200,#C9960A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{color:rgba(255,255,255,.82);font-size:1.05rem;font-weight:300;margin-bottom:2.8rem;line-height:1.75;letter-spacing:.3px}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:linear-gradient(120deg,#F2C200,#C9960A);color:#150A00;padding:15px 38px;border:none;border-radius:40px;font-weight:700;font-size:13.5px;cursor:pointer;letter-spacing:1px;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(201,150,10,.45);text-transform:uppercase}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(201,150,10,.65)}
+.btn-outline{background:transparent;color:#fff;padding:15px 38px;border:2px solid rgba(255,255,255,.35);border-radius:40px;font-weight:500;font-size:13.5px;cursor:pointer;letter-spacing:1px;transition:all .2s}
+.btn-outline:hover{border-color:#F2C200;color:#F2C200}
+
+/* STATS BAR */
+.stats-bar{background:var(--dark);display:grid;grid-template-columns:repeat(4,1fr);text-align:center;border-top:1px solid rgba(200,150,10,.12)}
+.stat-item{padding:2.2rem 1rem;border-right:1px solid rgba(200,150,10,.1)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;background:linear-gradient(120deg,#F2C200,#C9960A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stat-lbl{color:rgba(255,255,255,.5);font-size:11px;letter-spacing:2px;margin-top:6px;text-transform:uppercase}
+
+/* SECTIONS */
+.section{padding:5.5rem 2rem;max-width:1120px;margin:0 auto}
+.sec-label{color:var(--gold);font-size:11px;letter-spacing:3.5px;font-weight:700;text-transform:uppercase;margin-bottom:.5rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;color:var(--dark);line-height:1.15;margin-bottom:.8rem}
+.sec-title span{color:var(--orange)}
+.sec-sub{color:#777;font-size:.97rem;line-height:1.75;max-width:520px;margin-bottom:3rem}
+
+/* DESTINOS */
+.destinos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+@media(max-width:700px){.destinos-grid{grid-template-columns:1fr}}
+.dest-card{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:3/2;transition:transform .35s,box-shadow .35s}
+.dest-card:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.dest-card:hover .dest-overlay{opacity:1}
+.dest-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5.5rem}
+.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(21,10,0,.95) 0%,rgba(21,10,0,.25) 60%,transparent 100%);opacity:.65;transition:opacity .35s}
+.dest-info{position:absolute;bottom:0;left:0;right:0;padding:1.4rem 1.5rem;z-index:2}
+.dest-flag{font-size:1.1rem;margin-bottom:4px}
+.dest-name{font-family:'Playfair Display',serif;color:#fff;font-size:1.35rem;font-weight:700;line-height:1.2}
+.dest-region{color:rgba(255,255,255,.65);font-size:12px;margin-top:3px;letter-spacing:.5px}
+.dest-tag{position:absolute;top:14px;right:14px;background:linear-gradient(120deg,#F2C200,#C9960A);color:#150A00;padding:5px 13px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:1px;z-index:3;text-transform:uppercase}
+
+/* BGs */
+.bg-paris{background:linear-gradient(135deg,#5B4A90,#2E2060)}
+.bg-cancun{background:linear-gradient(135deg,#0F8B7A,#065248)}
+.bg-orlando{background:linear-gradient(135deg,#C44820,#7A2010)}
+.bg-noronha{background:linear-gradient(135deg,#0E8A50,#065030)}
+.bg-rj{background:linear-gradient(135deg,#1A7AB8,#0A4070)}
+.bg-bmk{background:linear-gradient(135deg,#8B6020,#4A3010)}
+.bg-bsb{background:linear-gradient(135deg,#2060A0,#103060)}
+.bg-dubai{background:linear-gradient(135deg,#B87020,#6A3C08)}
+.bg-sp{background:linear-gradient(135deg,#484848,#1A1A1A)}
+.bg-europa{background:linear-gradient(135deg,#204080,#0A2050)}
+
+/* POR QUE NÓS */
+.porque-bg{background:linear-gradient(160deg,var(--gold-pale),#fff);padding:5.5rem 2rem}
+.porque-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.8rem;max-width:1000px;margin:0 auto}
+.porque-card{background:#fff;border:1px solid rgba(200,150,10,.2);border-radius:18px;padding:2rem 1.5rem;text-align:center;transition:transform .3s,box-shadow .3s}
+.porque-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(201,150,10,.12)}
+.porque-icon{font-size:2.4rem;margin-bottom:1rem}
+.porque-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.porque-desc{color:#777;font-size:13px;line-height:1.7}
+
+/* COMO FUNCIONA */
+.steps-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2.5rem;max-width:900px;margin:3rem auto 0;position:relative}
+.steps-wrap::before{content:'';position:absolute;top:36px;left:80px;right:80px;height:2px;background:linear-gradient(90deg,#F2C200,#C9960A,#F2C200);opacity:.3}
+.step{text-align:center}
+.step-circle{width:72px;height:72px;background:linear-gradient(135deg,#F2C200,#C9960A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#150A00;margin:0 auto 1.2rem;box-shadow:0 6px 20px rgba(201,150,10,.35)}
+.step-t{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:.4rem}
+.step-d{color:#777;font-size:13px;line-height:1.7}
+
+/* DEPOIMENTOS */
+.depo-bg{background:var(--dark);padding:5.5rem 2rem}
+.depo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1000px;margin:3rem auto 0}
+.depo-card{background:rgba(255,255,255,.04);border:1px solid rgba(242,194,0,.15);border-radius:18px;padding:1.8rem}
+.depo-stars{color:#F2C200;font-size:15px;letter-spacing:2px;margin-bottom:.9rem}
+.depo-text{color:rgba(255,255,255,.75);font-size:14px;line-height:1.75;font-style:italic;margin-bottom:1.2rem}
+.depo-aut{display:flex;align-items:center;gap:12px}
+.depo-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#FF6500,#C9960A);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+.depo-name{color:#fff;font-weight:600;font-size:14px}
+.depo-dest{color:#C9960A;font-size:12px;margin-top:2px}
+
+/* INSTAGRAM */
+.ig-section{padding:5rem 2rem;text-align:center;background:#fff}
+.ig-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;padding:16px 36px;border-radius:40px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(253,29,29,.3);cursor:pointer;border:none}
+.ig-btn:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(253,29,29,.45)}
+
+/* CTA FINAL */
+.cta-sec{background:linear-gradient(150deg,#FF6500 0%,#CC4400 45%,#150A00 100%);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px}
+.cta-sec h2{font-family:'Playfair Display',serif;color:#fff;font-size:clamp(2.2rem,6vw,3.5rem);font-weight:900;margin-bottom:1rem;position:relative}
+.cta-sec h2 em{font-style:italic;background:linear-gradient(120deg,#F2C200,#C9960A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-sec p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:2.5rem;position:relative;line-height:1.7}
+.wa-btn{background:#25D366;color:#fff;padding:18px 44px;border:none;border-radius:40px;font-size:16px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:12px;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 28px rgba(37,211,102,.45);position:relative}
+.wa-btn:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(37,211,102,.6)}
+.wa-num{color:rgba(255,255,255,.6);font-size:14px;margin-top:1.2rem;position:relative}
+
+/* FOOTER */
+footer{background:#0A0500;padding:2.5rem 2rem;text-align:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;background:linear-gradient(120deg,#F2C200,#C9960A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.footer-links{display:flex;justify-content:center;gap:1.5rem;margin:.8rem 0;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.4);font-size:12px;text-decoration:none;letter-spacing:.5px;transition:color .2s}
+.footer-links a:hover{color:#F2C200}
+footer p{color:rgba(255,255,255,.25);font-size:12px;margin-top:.5rem}
+
+/* HERO ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge{animation:fadeUp .7s ease both .1s}
+.hero h1{animation:fadeUp .7s ease both .25s}
+.hero-sub{animation:fadeUp .7s ease both .4s}
+.hero-btns{animation:fadeUp .7s ease both .55s}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<div class="float-wa" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e gostaria de solicitar um orçamento de viagem 😊✈️','_blank')" title="Fale conosco no WhatsApp">💬</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-nav">
+    <div>
+      <div class="logo-rm">RM</div>
+      <div class="logo-tagline">Partiu Viagens</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#destinos">Destinos</a></li>
+    <li><a href="#porque">Por que nós</a></li>
+    <li><a href="#depoimentos">Clientes</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-ig" href="https://www.instagram.com/rmpartiuviagens" target="_blank">📷 Instagram</a>
+    <button class="nav-cta" onclick="window.open('https://wa.me/5511987569836?text=Olá! Quero solicitar um orçamento de viagem ✈️','_blank')">Orçamento grátis</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-plane">✈</div>
+  <div class="hero-content">
+    <div class="hero-badge">✨ +100 clientes que já voaram conosco</div>
+    <h1>O Mundo te<br>Espera, <em>Vamos?</em></h1>
+    <p class="hero-sub">Da praia de Noronha às ruas de Paris — a RM Partiu Viagens realiza sua viagem dos sonhos com atendimento personalizado, segurança e os melhores pacotes.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="window.open('https://wa.me/5511987569836?text=Olá! Quero solicitar um orçamento de viagem ✈️','_blank')">✈ Solicitar orçamento grátis</button>
+      <button class="btn-outline" onclick="document.getElementById('destinos').scrollIntoView({behavior:'smooth'})">Ver destinos</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">100+</div>
+    <div class="stat-lbl">Clientes satisfeitos</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">Nacional</div>
+    <div class="stat-lbl">e Internacional</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">98%</div>
+    <div class="stat-lbl">Aprovação</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">24h</div>
+    <div class="stat-lbl">Suporte completo</div>
+  </div>
+</div>
+
+<!-- DESTINOS -->
+<div id="destinos">
+<div class="section">
+  <div class="sec-label">✈ explore o mundo</div>
+  <h2 class="sec-title">Destinos <span>Nacionais</span> e Internacionais</h2>
+  <p class="sec-sub">Do Brasil para o mundo — ou pelo Brasil mesmo — a RM Partiu Viagens te leva aonde você sonhar.</p>
+  <div class="destinos-grid">
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Fernando de Noronha ✈️','_blank')">
+      <div class="dest-bg bg-noronha">🏝️</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">NACIONAL</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇧🇷</div>
+        <div class="dest-name">Fernando de Noronha</div>
+        <div class="dest-region">Pernambuco, Brasil</div>
+      </div>
+    </div>
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Paris ✈️','_blank')">
+      <div class="dest-bg bg-paris">🗼</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">POPULAR</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇫🇷</div>
+        <div class="dest-name">Paris</div>
+        <div class="dest-region">França, Europa</div>
+      </div>
+    </div>
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para o Rio de Janeiro ✈️','_blank')">
+      <div class="dest-bg bg-rj">🏖️</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">NACIONAL</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇧🇷</div>
+        <div class="dest-name">Rio de Janeiro</div>
+        <div class="dest-region">Rio de Janeiro, Brasil</div>
+      </div>
+    </div>
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Cancún ✈️','_blank')">
+      <div class="dest-bg bg-cancun">🌴</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">OFERTA</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇲🇽</div>
+        <div class="dest-name">Cancún</div>
+        <div class="dest-region">México, América Central</div>
+      </div>
+    </div>
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Bonito ✈️','_blank')">
+      <div class="dest-bg bg-bmk">🐠</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">NACIONAL</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇧🇷</div>
+        <div class="dest-name">Bonito</div>
+        <div class="dest-region">Mato Grosso do Sul, Brasil</div>
+      </div>
+    </div>
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Orlando ✈️','_blank')">
+      <div class="dest-bg bg-orlando">🎢</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">FAMÍLIA</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇺🇸</div>
+        <div class="dest-name">Orlando</div>
+        <div class="dest-region">Florida, Estados Unidos</div>
+      </div>
+    </div>
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Gramado ✈️','_blank')">
+      <div class="dest-bg bg-bsb">🏔️</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">NACIONAL</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇧🇷</div>
+        <div class="dest-name">Gramado & Canela</div>
+        <div class="dest-region">Rio Grande do Sul, Brasil</div>
+      </div>
+    </div>
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Dubai ✈️','_blank')">
+      <div class="dest-bg bg-dubai">🌆</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">LUXO</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇦🇪</div>
+        <div class="dest-name">Dubai</div>
+        <div class="dest-region">Emirados Árabes Unidos</div>
+      </div>
+    </div>
+
+    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para a Europa ✈️','_blank')">
+      <div class="dest-bg bg-europa">🏛️</div>
+      <div class="dest-overlay"></div>
+      <div class="dest-tag">NOVO</div>
+      <div class="dest-info">
+        <div class="dest-flag">🇪🇺</div>
+        <div class="dest-name">Europa Clássica</div>
+        <div class="dest-region">Portugal · Espanha · Itália</div>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <button class="btn-gold" onclick="window.open('https://wa.me/5511987569836?text=Olá! Quero saber sobre outros destinos disponíveis ✈️','_blank')">Consultar outros destinos ✈</button>
+  </div>
+</div>
+</div>
+
+<!-- POR QUE NÓS -->
+<div id="porque" class="porque-bg">
+  <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
+    <div class="sec-label">💛 nosso diferencial</div>
+    <h2 class="sec-title" style="color:var(--dark)">Por que escolher a <span>RM Partiu?</span></h2>
+    <p style="color:#777;font-size:.97rem;line-height:1.75">Mais de 100 famílias e viajantes confiam em nós. Saiba por quê.</p>
+  </div>
+  <div class="porque-grid">
+    <div class="porque-card">
+      <div class="porque-icon">🤝</div>
+      <div class="porque-title">Atendimento Personalizado</div>
+      <p class="porque-desc">Cada viagem é única. Montamos o pacote ideal de acordo com o seu perfil e orçamento.</p>
+    </div>
+    <div class="porque-card">
+      <div class="porque-icon">💰</div>
+      <div class="porque-title">Melhor Custo-Benefício</div>
+      <p class="porque-desc">Negociamos diretamente com companhias aéreas e hotéis para garantir o melhor preço pra você.</p>
+    </div>
+    <div class="porque-card">
+      <div class="porque-icon">🛡️</div>
+      <div class="porque-title">Viagem com Segurança</div>
+      <p class="porque-desc">Do check-in ao retorno, nossa equipe está disponível para qualquer eventualidade.</p>
+    </div>
+    <div class="porque-card">
+      <div class="porque-icon">⚡</div>
+      <div class="porque-title">Resposta Rápida</div>
+      <p class="porque-desc">Orçamentos em minutos. Confirmação ágil. Sem burocracia, sem enrolação.</p>
+    </div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<div style="background:#fff;padding:5.5rem 2rem">
+  <div style="text-align:center;max-width:600px;margin:0 auto">
+    <div class="sec-label">🗺️ simples assim</div>
+    <h2 class="sec-title" style="color:var(--dark)">Como <span>Funciona?</span></h2>
+    <p style="color:#777;font-size:.97rem;line-height:1.75">Em 3 passos você já pode estar com as malas prontas.</p>
+  </div>
+  <div class="steps-wrap">
+    <div class="step">
+      <div class="step-circle">1</div>
+      <div class="step-t">Escolha o Destino</div>
+      <p class="step-d">Diga pra nós onde quer ir, quantas pessoas e a época da viagem. Nacional ou internacional, temos opções!</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">2</div>
+      <div class="step-t">Receba o Orçamento</div>
+      <p class="step-d">Em minutos nossa equipe monta um pacote exclusivo com passagens, hotel e o que mais precisar.</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">3</div>
+      <div class="step-t">Prepare as Malas!</div>
+      <p class="step-d">Pagamento confirmado, é só aproveitar. Cuidamos de tudo para sua viagem ser perfeita.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<div id="depoimentos" class="depo-bg">
+  <div style="text-align:center;max-width:600px;margin:0 auto">
+    <div class="sec-label" style="color:#C9960A">❤️ quem já voou conosco</div>
+    <h2 class="sec-title" style="color:#fff">+100 <span>Clientes Felizes</span></h2>
+    <p style="color:rgba(255,255,255,.6);font-size:.97rem;line-height:1.75">A melhor propaganda é a satisfação de quem já viajou com a gente.</p>
+  </div>
+  <div class="depo-grid">
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"Fui para Fernando de Noronha com meu marido e foi a viagem mais linda da nossa vida! A RM Partiu cuidou de absolutamente tudo. Nota 1000!"</p>
+      <div class="depo-aut">
+        <div class="depo-av">AF</div>
+        <div>
+          <div class="depo-name">Ana Fernanda</div>
+          <div class="depo-dest">✈ Fernando de Noronha</div>
+        </div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"Levei minha família para Orlando e foi incrível! Preço justo, tudo organizado, sem stress nenhum. Com certeza voltarei para contratar outra viagem!"</p>
+      <div class="depo-aut">
+        <div class="depo-av">RC</div>
+        <div>
+          <div class="depo-name">Ricardo Costa</div>
+          <div class="depo-dest">✈ Orlando, EUA</div>
+        </div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"Fui para Paris com minhas amigas e superou todas as expectativas! Atendimento maravilhoso do começo ao fim. Indico pra todo mundo!"</p>
+      <div class="depo-aut">
+        <div class="depo-av">MS</div>
+        <div>
+          <div class="depo-name">Mariana Santos</div>
+          <div class="depo-dest">✈ Paris, França</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="ig-section">
+  <div class="sec-label" style="text-align:center">📷 siga nossas aventuras</div>
+  <h2 class="sec-title" style="text-align:center;margin-bottom:.8rem">Nos siga no <span>Instagram</span></h2>
+  <p style="color:#777;font-size:.97rem;line-height:1.75;max-width:450px;margin:0 auto 2rem;text-align:center">Fique por dentro das nossas promoções, destinos e histórias de viagem diariamente.</p>
+  <div style="text-align:center">
+    <button class="ig-btn" onclick="window.open('https://www.instagram.com/rmpartiuviagens','_blank')">
+      📷 @rmpartiuviagens
+    </button>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div id="contato" class="cta-sec">
+  <h2>Pronto para <em>Decolar?</em></h2>
+  <p>Fale agora com nossa equipe pelo WhatsApp e receba<br>um orçamento personalizado e gratuito em minutos.</p>
+  <button class="wa-btn" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e quero solicitar um orçamento de viagem ✈️😊','_blank')">
+    💬 Falar no WhatsApp agora
+  </button>
+  <div class="wa-num">(11) 98756-9836</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">RM Partiu Viagens</div>
+  <div class="footer-links">
+    <a href="https://wa.me/5511987569836" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/rmpartiuviagens" target="_blank">Instagram</a>
+    <a href="#destinos">Destinos</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <p>© 2025 RM Partiu Viagens · Realizando sonhos, um voo de cada vez ✈</p>
+</footer>
+
+</body>
+</html>
