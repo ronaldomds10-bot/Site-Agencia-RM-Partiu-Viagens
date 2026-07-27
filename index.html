@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RM Partiu Viagens</title>
+<title>RM Partiu Viagens | Agência de Viagens com Atendimento Personalizado</title>
+<meta name="description" content="Planeje sua viagem com a RM Partiu Viagens: passagens aéreas, hospedagens, pacotes de viagem, ingressos, aluguel de veículos e atendimento personalizado pelo WhatsApp.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -24,6 +25,17 @@ nav{background:var(--dark);padding:.9rem 2.5rem;display:flex;align-items:center;
 .nav-ig:hover{border-color:#F2C200;color:#F2C200}
 .nav-cta{background:linear-gradient(120deg,#F2C200,#C9960A);color:#150A00;padding:10px 22px;border:none;border-radius:30px;font-weight:700;font-size:12px;cursor:pointer;letter-spacing:1px;transition:transform .2s;text-transform:uppercase}
 .nav-cta:hover{transform:scale(1.05)}
+@media(max-width:900px){
+  nav{padding:.75rem 1rem;gap:.65rem;flex-wrap:wrap;justify-content:center}
+  .logo-nav{width:100%;justify-content:center}
+  .logo-rm{text-align:center}
+  .logo-tagline{letter-spacing:3px}
+  .nav-links{gap:1rem;justify-content:center;flex-wrap:wrap}
+  .nav-links a{font-size:11px;letter-spacing:1px}
+  .nav-right{width:100%;justify-content:center;gap:.5rem}
+  .nav-ig{padding:7px 14px;font-size:11px}
+  .nav-cta{padding:9px 18px;font-size:11px}
+}
 
 /* HERO */
 .hero{background:linear-gradient(150deg,#FF6500 0%,#CC4400 35%,#150A00 100%);min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:5rem 2rem 6rem}
@@ -151,8 +163,6 @@ to{opacity:1;transform:translateY(0)}}
 100%{inset:-20px;opacity:0}}
 
 50%{box-shadow:0 0 0 5px rgba(37,211,102,0)}}
-
-@media(max-width:600px){}
 
 /* ── WA CHATBOT WIDGET ─────────────────────────── */
 .wa-bot {
@@ -283,14 +293,14 @@ to{opacity:1;transform:translateY(0)}}
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="#destinos">Destinos</a></li>
-    <li><a href="#porque">Por que nós</a></li>
-    <li><a href="#depoimentos">Clientes</a></li>
-    <li><a href="#contato">Contato</a></li>
+    <li><a href="#destinos" aria-label="Destinos" title="Destinos">Destinos</a></li>
+    <li><a href="#porque" aria-label="Diferenciais da RM Partiu Viagens" title="Diferenciais">RM</a></li>
+    <li><a href="#depoimentos" aria-label="Como a RM Partiu ajuda" title="Ajuda">Ajuda</a></li>
+    <li><a href="#contato" aria-label="Contato pelo WhatsApp" title="WhatsApp">Zap</a></li>
   </ul>
   <div class="nav-right">
-    <a class="nav-ig" href="https://www.instagram.com/rmpartiuviagens" target="_blank">📷 Instagram</a>
-    <button class="nav-cta" onclick="window.open('https://wa.me/5511987569836?text=Olá! Quero solicitar um orçamento de viagem ✈️','_blank')">Orçamento grátis</button>
+    <a class="nav-ig" href="https://www.instagram.com/rmpartiuviagens" target="_blank" rel="noopener noreferrer" aria-label="Instagram da RM Partiu Viagens" title="Instagram">IG</a>
+    <button class="nav-cta" aria-label="Pedir cotação pelo WhatsApp" title="Pedir cotação" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e quero uma cotação de viagem. Destino: __. Datas: __. Pessoas: __.','_blank')">Cotação</button>
   </div>
 </nav>
 
@@ -300,12 +310,12 @@ to{opacity:1;transform:translateY(0)}}
   <div class="hero-glow"></div>
   <div class="hero-plane">✈</div>
   <div class="hero-content">
-    <div class="hero-badge">✨ +100 clientes que já voaram conosco</div>
-    <h1>O Mundo te<br>Espera, <em>Vamos?</em></h1>
-    <p class="hero-sub">Da praia de Noronha às ruas de Paris — a RM Partiu Viagens realiza sua viagem dos sonhos com atendimento personalizado, segurança e os melhores pacotes.</p>
+    <div class="hero-badge">✨ Brasil e exterior</div>
+    <h1>Viaje com<br><em>apoio real</em></h1>
+    <p class="hero-sub">Atendimento humano.</p>
     <div class="hero-btns">
-      <button class="btn-gold" onclick="window.open('https://wa.me/5511987569836?text=Olá! Quero solicitar um orçamento de viagem ✈️','_blank')">✈ Solicitar orçamento grátis</button>
-      <button class="btn-outline" onclick="document.getElementById('destinos').scrollIntoView({behavior:'smooth'})">Ver destinos</button>
+      <button class="btn-gold" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e quero uma cotação de viagem. Destino: __. Datas: __. Pessoas: __.','_blank')">✈ Cotação</button>
+      <button class="btn-outline" onclick="document.getElementById('destinos').scrollIntoView({behavior:'smooth'})">Ver</button>
     </div>
   </div>
 </section>
@@ -313,20 +323,20 @@ to{opacity:1;transform:translateY(0)}}
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stat-item">
-    <div class="stat-num">100+</div>
-    <div class="stat-lbl">Clientes satisfeitos</div>
+    <div class="stat-num">BR</div>
+    <div class="stat-lbl">Nacional</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">Nacional</div>
-    <div class="stat-lbl">e Internacional</div>
+    <div class="stat-num">EXT</div>
+    <div class="stat-lbl">Exterior</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">98%</div>
-    <div class="stat-lbl">Aprovação</div>
+    <div class="stat-num">RM</div>
+    <div class="stat-lbl">Humano</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">24h</div>
-    <div class="stat-lbl">Suporte completo</div>
+    <div class="stat-num">Zap</div>
+    <div class="stat-lbl">Suporte</div>
   </div>
 </div>
 
@@ -334,8 +344,8 @@ to{opacity:1;transform:translateY(0)}}
 <div id="destinos">
 <div class="section">
   <div class="sec-label">✈ explore o mundo</div>
-  <h2 class="sec-title">Destinos <span>Nacionais</span> e Internacionais</h2>
-  <p class="sec-sub">Do Brasil para o mundo — ou pelo Brasil mesmo — a RM Partiu Viagens te leva aonde você sonhar.</p>
+  <h2 class="sec-title">Pacotes para destinos <span>Nacionais</span> e Internacionais</h2>
+  <p class="sec-sub">Escolha seu destino e fale com a equipe para montar uma opção de viagem conforme seu perfil.</p>
   <div class="destinos-grid">
 
     <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Fernando de Noronha ✈️','_blank')">
@@ -352,7 +362,7 @@ to{opacity:1;transform:translateY(0)}}
     <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Paris ✈️','_blank')">
       <div class="dest-bg bg-paris">🗼</div>
       <div class="dest-overlay"></div>
-      <div class="dest-tag">POPULAR</div>
+      <div class="dest-tag">EUROPA</div>
       <div class="dest-info">
         <div class="dest-flag">🇫🇷</div>
         <div class="dest-name">Paris</div>
@@ -374,7 +384,7 @@ to{opacity:1;transform:translateY(0)}}
     <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Cancún ✈️','_blank')">
       <div class="dest-bg bg-cancun">🌴</div>
       <div class="dest-overlay"></div>
-      <div class="dest-tag">OFERTA</div>
+      <div class="dest-tag">PRAIA</div>
       <div class="dest-info">
         <div class="dest-flag">🇲🇽</div>
         <div class="dest-name">Cancún</div>
@@ -400,7 +410,7 @@ to{opacity:1;transform:translateY(0)}}
       <div class="dest-info">
         <div class="dest-flag">🇺🇸</div>
         <div class="dest-name">Orlando</div>
-        <div class="dest-region">Florida, Estados Unidos</div>
+        <div class="dest-region">Flórida, Estados Unidos</div>
       </div>
     </div>
 
@@ -418,7 +428,7 @@ to{opacity:1;transform:translateY(0)}}
     <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Dubai ✈️','_blank')">
       <div class="dest-bg bg-dubai">🌆</div>
       <div class="dest-overlay"></div>
-      <div class="dest-tag">LUXO</div>
+      <div class="dest-tag">INTERNACIONAL</div>
       <div class="dest-info">
         <div class="dest-flag">🇦🇪</div>
         <div class="dest-name">Dubai</div>
@@ -429,7 +439,7 @@ to{opacity:1;transform:translateY(0)}}
     <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para a Europa ✈️','_blank')">
       <div class="dest-bg bg-europa">🏛️</div>
       <div class="dest-overlay"></div>
-      <div class="dest-tag">NOVO</div>
+      <div class="dest-tag">EUROPA</div>
       <div class="dest-info">
         <div class="dest-flag">🇪🇺</div>
         <div class="dest-name">Europa Clássica</div>
@@ -439,7 +449,7 @@ to{opacity:1;transform:translateY(0)}}
 
   </div>
   <div style="text-align:center;margin-top:2.5rem">
-    <button class="btn-gold" onclick="window.open('https://wa.me/5511987569836?text=Olá! Quero saber sobre outros destinos disponíveis ✈️','_blank')">Consultar outros destinos ✈</button>
+    <button class="btn-gold" onclick="window.open('https://wa.me/5511987569836?text=Olá! Quero consultar opções para outro destino. Destino: __. Datas: __. Pessoas: __.','_blank')">Consultar destino pelo WhatsApp</button>
   </div>
 </div>
 </div>
@@ -448,29 +458,29 @@ to{opacity:1;transform:translateY(0)}}
 <div id="porque" class="porque-bg">
   <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
     <div class="sec-label">💛 nosso diferencial</div>
-    <h2 class="sec-title" style="color:var(--dark)">Por que escolher a <span>RM Partiu?</span></h2>
-    <p style="color:#777;font-size:.97rem;line-height:1.75">Mais de 100 famílias e viajantes confiam em nós. Saiba por quê.</p>
+    <h2 class="sec-title" style="color:var(--dark)">Por que escolher a <span>RM Partiu Viagens?</span></h2>
+    <p style="color:#777;font-size:.97rem;line-height:1.75">Famílias e viajantes contam com nosso atendimento para planejar melhor cada viagem.</p>
   </div>
   <div class="porque-grid">
     <div class="porque-card">
       <div class="porque-icon">🤝</div>
-      <div class="porque-title">Atendimento Personalizado</div>
-      <p class="porque-desc">Cada viagem é única. Montamos o pacote ideal de acordo com o seu perfil e orçamento.</p>
+      <div class="porque-title">Atendimento personalizado</div>
+      <p class="porque-desc">Montamos opções de viagem de acordo com seu perfil, destino, datas e orçamento.</p>
     </div>
     <div class="porque-card">
       <div class="porque-icon">💰</div>
-      <div class="porque-title">Melhor Custo-Benefício</div>
-      <p class="porque-desc">Negociamos diretamente com companhias aéreas e hotéis para garantir o melhor preço pra você.</p>
+      <div class="porque-title">Boas opções para seu orçamento</div>
+      <p class="porque-desc">Buscamos alternativas compatíveis com seu perfil, destino e forma de viajar.</p>
     </div>
     <div class="porque-card">
       <div class="porque-icon">🛡️</div>
-      <div class="porque-title">Viagem com Segurança</div>
-      <p class="porque-desc">Do check-in ao retorno, nossa equipe está disponível para qualquer eventualidade.</p>
+      <div class="porque-title">Orientação em cada etapa</div>
+      <p class="porque-desc">Você conta com suporte da equipe durante o planejamento e nas principais etapas da viagem.</p>
     </div>
     <div class="porque-card">
       <div class="porque-icon">⚡</div>
-      <div class="porque-title">Resposta Rápida</div>
-      <p class="porque-desc">Orçamentos em minutos. Confirmação ágil. Sem burocracia, sem enrolação.</p>
+      <div class="porque-title">Atendimento ágil pelo WhatsApp</div>
+      <p class="porque-desc">Você envia os detalhes e recebe uma resposta direta, com orientação clara.</p>
     </div>
   </div>
 </div>
@@ -479,24 +489,24 @@ to{opacity:1;transform:translateY(0)}}
 <div style="background:#fff;padding:5.5rem 2rem">
   <div style="text-align:center;max-width:600px;margin:0 auto">
     <div class="sec-label">🗺️ simples assim</div>
-    <h2 class="sec-title" style="color:var(--dark)">Como <span>Funciona?</span></h2>
-    <p style="color:#777;font-size:.97rem;line-height:1.75">Em 3 passos você já pode estar com as malas prontas.</p>
+    <h2 class="sec-title" style="color:var(--dark)">Como pedir seu <span>Orçamento?</span></h2>
+    <p style="color:#777;font-size:.97rem;line-height:1.75">Em 3 passos, você começa a planejar sua viagem com mais segurança.</p>
   </div>
   <div class="steps-wrap">
     <div class="step">
       <div class="step-circle">1</div>
-      <div class="step-t">Escolha o Destino</div>
-      <p class="step-d">Diga pra nós onde quer ir, quantas pessoas e a época da viagem. Nacional ou internacional, temos opções!</p>
+      <div class="step-t">Envie destino, datas e viajantes</div>
+      <p class="step-d">Conte para nós onde quer ir, quando pretende viajar e quantas pessoas vão com você.</p>
     </div>
     <div class="step">
       <div class="step-circle">2</div>
-      <div class="step-t">Receba o Orçamento</div>
-      <p class="step-d">Em minutos nossa equipe monta um pacote exclusivo com passagens, hotel e o que mais precisar.</p>
+      <div class="step-t">Receba opções de viagem</div>
+      <p class="step-d">Nossa equipe prepara alternativas com passagens, hospedagens, pacotes, ingressos ou aluguel de veículos.</p>
     </div>
     <div class="step">
       <div class="step-circle">3</div>
-      <div class="step-t">Prepare as Malas!</div>
-      <p class="step-d">Pagamento confirmado, é só aproveitar. Cuidamos de tudo para sua viagem ser perfeita.</p>
+      <div class="step-t">Viaje com mais tranquilidade</div>
+      <p class="step-d">Com tudo confirmado, você recebe orientações para seguir viagem com mais segurança.</p>
     </div>
   </div>
 </div>
@@ -504,41 +514,41 @@ to{opacity:1;transform:translateY(0)}}
 <!-- DEPOIMENTOS -->
 <div id="depoimentos" class="depo-bg">
   <div style="text-align:center;max-width:600px;margin:0 auto">
-    <div class="sec-label" style="color:#C9960A">❤️ quem já voou conosco</div>
-    <h2 class="sec-title" style="color:#fff">+100 <span>Clientes Felizes</span></h2>
-    <p style="color:rgba(255,255,255,.6);font-size:.97rem;line-height:1.75">A melhor propaganda é a satisfação de quem já viajou com a gente.</p>
+    <div class="sec-label" style="color:#C9960A">❤️ confiança no atendimento</div>
+    <h2 class="sec-title" style="color:#fff">Como a <span>RM Partiu ajuda</span></h2>
+    <p style="color:rgba(255,255,255,.6);font-size:.97rem;line-height:1.75">Atendimento próximo para deixar o planejamento mais simples e seguro.</p>
   </div>
   <div class="depo-grid">
     <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"Fui para Fernando de Noronha com meu marido e foi a viagem mais linda da nossa vida! A RM Partiu cuidou de absolutamente tudo. Nota 1000!"</p>
+      <div class="depo-stars">Planejamento</div>
+      <p class="depo-text">Ajuda para organizar destino, datas, viajantes e preferências antes de montar a cotação.</p>
       <div class="depo-aut">
-        <div class="depo-av">AF</div>
+        <div class="depo-av">1</div>
         <div>
-          <div class="depo-name">Ana Fernanda</div>
-          <div class="depo-dest">✈ Fernando de Noronha</div>
+          <div class="depo-name">Planejamento</div>
+          <div class="depo-dest">✈ Antes da viagem</div>
         </div>
       </div>
     </div>
     <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"Levei minha família para Orlando e foi incrível! Preço justo, tudo organizado, sem stress nenhum. Com certeza voltarei para contratar outra viagem!"</p>
+      <div class="depo-stars">Cotação</div>
+      <p class="depo-text">Busca por opções de passagens, hospedagens, pacotes e serviços conforme o perfil da viagem.</p>
       <div class="depo-aut">
-        <div class="depo-av">RC</div>
+        <div class="depo-av">2</div>
         <div>
-          <div class="depo-name">Ricardo Costa</div>
-          <div class="depo-dest">✈ Orlando, EUA</div>
+          <div class="depo-name">Cotação</div>
+          <div class="depo-dest">✈ Opções sob medida</div>
         </div>
       </div>
     </div>
     <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"Fui para Paris com minhas amigas e superou todas as expectativas! Atendimento maravilhoso do começo ao fim. Indico pra todo mundo!"</p>
+      <div class="depo-stars">Suporte</div>
+      <p class="depo-text">Orientações claras para você seguir com mais segurança depois de confirmar sua viagem.</p>
       <div class="depo-aut">
-        <div class="depo-av">MS</div>
+        <div class="depo-av">3</div>
         <div>
-          <div class="depo-name">Mariana Santos</div>
-          <div class="depo-dest">✈ Paris, França</div>
+          <div class="depo-name">Suporte</div>
+          <div class="depo-dest">✈ Durante a jornada</div>
         </div>
       </div>
     </div>
@@ -548,8 +558,8 @@ to{opacity:1;transform:translateY(0)}}
 <!-- INSTAGRAM -->
 <div class="ig-section">
   <div class="sec-label" style="text-align:center">📷 siga nossas aventuras</div>
-  <h2 class="sec-title" style="text-align:center;margin-bottom:.8rem">Nos siga no <span>Instagram</span></h2>
-  <p style="color:#777;font-size:.97rem;line-height:1.75;max-width:450px;margin:0 auto 2rem;text-align:center">Fique por dentro das nossas promoções, destinos e histórias de viagem diariamente.</p>
+  <h2 class="sec-title" style="text-align:center;margin-bottom:.8rem">Siga a RM Partiu Viagens no <span>Instagram</span></h2>
+  <p style="color:#777;font-size:.97rem;line-height:1.75;max-width:450px;margin:0 auto 2rem;text-align:center">Acompanhe promoções, destinos e conteúdos de viagem no nosso Instagram.</p>
   <div style="text-align:center">
     <button class="ig-btn" onclick="window.open('https://www.instagram.com/rmpartiuviagens','_blank')">
       📷 @rmpartiuviagens
@@ -559,9 +569,9 @@ to{opacity:1;transform:translateY(0)}}
 
 <!-- CTA FINAL -->
 <div id="contato" class="cta-sec">
-  <h2>Pronto para <em>Decolar?</em></h2>
-  <p>Fale agora com nossa equipe pelo WhatsApp e receba<br>um orçamento personalizado e gratuito em minutos.</p>
-  <button class="wa-btn" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e quero solicitar um orçamento de viagem ✈️😊','_blank')">
+  <h2>Quer planejar sua <em>próxima viagem?</em></h2>
+  <p>Fale com nossa equipe pelo WhatsApp e solicite<br>um orçamento personalizado para sua viagem.</p>
+  <button class="wa-btn" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e quero uma cotação de viagem. Destino: __. Datas: __. Pessoas: __.','_blank')">
     💬 Falar no WhatsApp agora
   </button>
   <div class="wa-num">(11) 98756-9836</div>
@@ -571,12 +581,12 @@ to{opacity:1;transform:translateY(0)}}
 <footer>
   <div class="footer-logo">RM Partiu Viagens</div>
   <div class="footer-links">
-    <a href="https://wa.me/5511987569836" target="_blank">WhatsApp</a>
-    <a href="https://www.instagram.com/rmpartiuviagens" target="_blank">Instagram</a>
+    <a href="https://wa.me/5511987569836" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="https://www.instagram.com/rmpartiuviagens" target="_blank" rel="noopener noreferrer">Instagram</a>
     <a href="#destinos">Destinos</a>
     <a href="#contato">Contato</a>
   </div>
-  <p>© 2025 RM Partiu Viagens · Realizando sonhos, um voo de cada vez ✈</p>
+  <p>© 2026 RM Partiu Viagens · Passagens, hospedagens, pacotes e atendimento personalizado</p>
 </footer>
 
 
@@ -585,17 +595,17 @@ to{opacity:1;transform:translateY(0)}}
 
   <!-- Balão de fala -->
   <div class="wa-bot-bubble" id="waBotBubble"
-       onclick="window.open('https://wa.me/5511987569836?text=Ol%C3%A1%21+Sou+o+Matteo%2C+seu+assistente.+Quero+garantir+minha+pr%C3%B3xima+viagem%21','_blank')">
+       onclick="window.open('https://wa.me/5511987569836?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+uma+cota%C3%A7%C3%A3o+de+viagem.+Destino%3A+__.+Datas%3A+__.+Pessoas%3A+__.','_blank')">
     <button class="wa-bot-bubble-close" onclick="hideWaBubble(event)" aria-label="Fechar">✕</button>
-    <div class="wa-bot-bubble-name">✈ Matteo · online</div>
-    <div class="wa-bot-bubble-msg">Olá! Sou o Matteo, seu assistente. Quer viajar pagando menos? Garanta agora sua próxima viagem!</div>
+    <div class="wa-bot-bubble-name">✈ Matteo · atendimento</div>
+    <div class="wa-bot-bubble-msg">Quer ajuda com sua viagem? Fale pelo WhatsApp.</div>
     <div class="wa-bot-bubble-cta">💬 Falar no WhatsApp →</div>
   </div>
 
   <!-- Botão avatar WhatsApp -->
   <a class="wa-bot-btn"
-     href="https://wa.me/5511987569836?text=Ol%C3%A1%21+Sou+o+Matteo%2C+seu+assistente.+Quero+garantir+minha+pr%C3%B3xima+viagem%21"
-     target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+     href="https://wa.me/5511987569836?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+uma+cota%C3%A7%C3%A3o+de+viagem.+Destino%3A+__.+Datas%3A+__.+Pessoas%3A+__."
+     target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
