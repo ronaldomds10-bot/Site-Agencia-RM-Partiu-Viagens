@@ -3,710 +3,433 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RM Partiu Viagens | Cotação de Viagens com Atendimento Humano</title>
-<meta name="description" content="Monte sua viagem com a RM Partiu Viagens: passagens, hospedagens, pacotes, ingressos e aluguel de veículos com cotação pelo WhatsApp e atendimento humano.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>RM Partiu Viagens | Agência de Viagens Sob Medida</title>
+<meta name="description" content="Cote viagens nacionais e internacionais com a RM Partiu Viagens. Passagens, hotéis, pacotes, ingressos, aluguel de veículos e atendimento humano pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--orange:#FF6500;--orange2:#E05500;--gold:#C9960A;--gold-light:#F2C200;--gold-pale:#FFFAEC;--dark:#150A00;--dark2:#2A1500;--text:#2C1800}
-html{scroll-behavior:smooth}
-html,body{max-width:100%;overflow-x:hidden}
-body{font-family:'Montserrat',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
-button,a{touch-action:manipulation}
-
-/* NAV */
-nav{background:var(--dark);padding:.9rem 2.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(200,150,10,.15)}
-.logo-nav{display:flex;align-items:center;gap:12px;cursor:pointer}
-.logo-rm{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;background:linear-gradient(120deg,#F2C200 0%,#C9960A 50%,#F2C200 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.logo-tagline{font-size:9px;color:#C9960A;letter-spacing:3.5px;font-weight:600;margin-top:2px;text-transform:uppercase}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12.5px;letter-spacing:1.2px;font-weight:500;transition:color .3s;text-transform:uppercase}
-.nav-links a:hover{color:#F2C200}
-.nav-right{display:flex;align-items:center;gap:12px}
-.nav-ig{color:#C9960A;font-size:13px;text-decoration:none;border:1px solid rgba(200,150,10,.3);padding:8px 16px;border-radius:30px;transition:all .2s;letter-spacing:.5px}
-.nav-ig:hover{border-color:#F2C200;color:#F2C200}
-.nav-cta{background:linear-gradient(120deg,#F2C200,#C9960A);color:#150A00;padding:10px 22px;border:none;border-radius:30px;font-weight:700;font-size:12px;cursor:pointer;letter-spacing:1px;transition:transform .2s;text-transform:uppercase}
-.nav-cta:hover{transform:scale(1.05)}
-@media(max-width:900px){
-  nav{padding:.75rem 1rem;gap:.65rem;flex-wrap:wrap;justify-content:center}
-  .logo-nav{width:100%;justify-content:center}
-  .logo-rm{text-align:center}
-  .logo-tagline{letter-spacing:3px}
-  .nav-links{gap:1rem;justify-content:center;flex-wrap:wrap}
-  .nav-links a{font-size:11px;letter-spacing:1px}
-  .nav-right{width:100%;justify-content:center;gap:.5rem}
-  .nav-ig{padding:7px 14px;font-size:11px}
-  .nav-cta{padding:9px 18px;font-size:11px}
+:root{
+  --ink:#160c05;
+  --coffee:#2b1608;
+  --orange:#f26419;
+  --gold:#d6a316;
+  --teal:#0f766e;
+  --sky:#e8f4f8;
+  --cream:#fff7e8;
+  --paper:#fffdf8;
+  --line:rgba(43,22,8,.12);
+  --muted:#6d6259;
+  --shadow:0 24px 70px rgba(35,19,8,.16);
 }
-@media(max-width:520px){
-  nav{padding:.7rem .9rem;gap:.55rem}
-  .logo-rm{font-size:27px}
-  .logo-tagline{font-size:8px;letter-spacing:2.6px}
-  .nav-links{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem}
-  .nav-links a{display:block;text-align:center;font-size:10px;letter-spacing:.7px;padding:.25rem .1rem;white-space:nowrap}
-  .nav-right{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);width:100%;max-width:260px}
-  .nav-ig,.nav-cta{width:100%;min-height:38px;display:flex;align-items:center;justify-content:center}
+*{box-sizing:border-box}
+html{width:100%;min-height:100%;scroll-behavior:smooth;overflow-x:clip;overflow-y:auto}
+body{width:100%;min-height:100%;margin:0;font-family:Montserrat,Arial,sans-serif;color:var(--ink);background:var(--paper);overflow-x:clip}
+body.menu-open{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.site{width:100%;overflow:clip}
+.container{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(22,12,5,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand-mark{width:48px;height:48px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#fff0aa);color:var(--coffee);font:900 24px "Playfair Display",serif;box-shadow:0 10px 30px rgba(214,163,22,.28)}
+.brand-text strong{display:block;color:#fff;font-weight:800;letter-spacing:.02em}
+.brand-text span{display:block;color:#e5b849;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:22px;color:rgba(255,255,255,.72);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.nav-links a{padding:10px 0;border-bottom:2px solid transparent}
+.nav-links a:hover{color:#fff;border-color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.icon-link,.nav-quote,.menu-btn{border:1px solid rgba(255,255,255,.18);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;min-height:42px;display:inline-flex;align-items:center;justify-content:center}
+.icon-link{width:44px;font-weight:800}
+.nav-quote{padding:0 16px;background:linear-gradient(135deg,var(--gold),#f7cf55);color:var(--coffee);border:0;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.menu-btn{display:none;width:44px}
+.hero{position:relative;min-height:720px;background:#171009;color:#fff;display:grid;align-items:center;padding:68px 0 92px;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,6,3,.88),rgba(10,6,3,.58) 45%,rgba(10,6,3,.14)),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=82") center/cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:34%;background:linear-gradient(0deg,var(--paper),transparent);z-index:-1}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(360px,.72fr);gap:42px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1);border-radius:8px;padding:8px 12px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#ffe49b}
+h1,h2,h3,p{margin:0}
+h1{font:900 clamp(3.4rem,7vw,6.6rem)/.92 "Playfair Display",serif;letter-spacing:0;margin:22px 0}
+h1 em{font-style:normal;color:#f5c247}
+.hero-copy{max-width:720px}
+.hero-copy p{max-width:610px;color:rgba(255,255,255,.84);font-size:18px;line-height:1.75}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn-primary,.btn-secondary,.btn-dark{border:0;border-radius:8px;min-height:52px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;letter-spacing:.02em}
+.btn-primary{background:linear-gradient(135deg,var(--orange),#ffb11f);color:#fff;box-shadow:0 18px 42px rgba(242,100,25,.32)}
+.btn-secondary{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.26)}
+.btn-dark{background:var(--ink);color:#fff}
+.quote-card{background:rgba(255,253,248,.96);color:var(--ink);border-radius:8px;padding:24px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.55)}
+.quote-card h2{font:900 30px/1.05 "Playfair Display",serif;margin-bottom:8px}
+.quote-card p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:18px}
+.quote-form{display:grid;gap:12px}
+.field{display:grid;gap:6px}
+.field label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#695544}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:8px;min-height:46px;padding:11px 12px;color:var(--ink);outline:none}
+.field textarea{min-height:82px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(242,100,25,.12)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-status{font-size:13px;color:var(--teal);min-height:18px}
+.trust-strip{margin-top:-42px;position:relative;z-index:4}
+.trust-box{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
+.trust-item{padding:24px;border-right:1px solid var(--line)}
+.trust-item:last-child{border-right:0}
+.trust-item strong{display:block;font:900 28px/1 "Playfair Display",serif;color:var(--orange)}
+.trust-item span{display:block;margin-top:8px;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+section{padding:88px 0}
+.section-head{display:flex;justify-content:space-between;gap:26px;align-items:end;margin-bottom:34px}
+.section-head h2{font:900 clamp(2.2rem,4.5vw,4rem)/1 "Playfair Display",serif;max-width:720px}
+.section-head p{color:var(--muted);line-height:1.75;max-width:430px}
+.destinations{background:var(--paper)}
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dest-card{position:relative;min-height:320px;border-radius:8px;overflow:hidden;background:#ddd;color:#fff;box-shadow:0 18px 42px rgba(22,12,5,.12)}
+.dest-card::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,8,3,.86),rgba(16,8,3,.12) 62%,rgba(16,8,3,.04));z-index:1}
+.dest-card img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .6s}
+.dest-card:hover img{transform:scale(1.06)}
+.dest-info{position:absolute;inset:auto 0 0;padding:22px;z-index:2}
+.dest-tag{display:inline-flex;border-radius:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);padding:6px 9px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.dest-info h3{font:900 30px/1.05 "Playfair Display",serif;margin:12px 0 6px}
+.dest-info p{color:rgba(255,255,255,.82);font-size:14px}
+.services{background:#f3f8f7}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.service-card{background:#fff;border:1px solid rgba(15,118,110,.12);border-radius:8px;padding:24px;min-height:230px;box-shadow:0 16px 36px rgba(15,118,110,.08)}
+.service-icon{width:48px;height:48px;border-radius:8px;background:#e0f2f1;color:var(--teal);display:grid;place-items:center;font-size:24px;margin-bottom:18px}
+.service-card h3{font:900 22px/1.1 "Playfair Display",serif;margin-bottom:10px}
+.service-card p{color:var(--muted);font-size:14px;line-height:1.72}
+.split{background:#fff}
+.split-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center}
+.photo-panel{position:relative;border-radius:8px;overflow:hidden;min-height:560px;background:var(--coffee);box-shadow:var(--shadow)}
+.photo-panel img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.photo-note{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(255,255,255,.92);border-radius:8px;padding:18px;color:var(--ink)}
+.photo-note strong{display:block;font-weight:900;margin-bottom:4px}
+.photo-note span{color:var(--muted);font-size:13px;line-height:1.55}
+.steps{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:20px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.step-num{width:54px;height:54px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#f5cf61);font-weight:900;color:var(--coffee)}
+.step h3{font-size:18px;margin-bottom:6px}
+.step p{color:var(--muted);line-height:1.7;font-size:14px}
+.banner{background:var(--ink);color:#fff;padding:0}
+.banner-grid{display:grid;grid-template-columns:1fr 1fr}
+.banner-copy{padding:78px max(40px,calc((100vw - 1160px)/2));padding-right:54px}
+.banner-copy h2{font:900 clamp(2.2rem,4vw,4.8rem)/1 "Playfair Display",serif;margin-bottom:18px}
+.banner-copy p{color:rgba(255,255,255,.72);line-height:1.75;max-width:500px;margin-bottom:28px}
+.banner-media{min-height:460px;background:url("https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1300&q=82") center/cover}
+.faq{background:var(--paper)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px}
+.faq-list{display:grid;gap:12px}
+details{border:1px solid var(--line);border-radius:8px;background:#fff;padding:18px 20px}
+summary{cursor:pointer;font-weight:800;list-style:none}
+summary::-webkit-details-marker{display:none}
+details p{color:var(--muted);line-height:1.7;margin-top:12px;font-size:14px}
+.final-cta{padding:88px 0;background:linear-gradient(135deg,#0f766e,#153b36);color:#fff;text-align:center}
+.final-cta h2{font:900 clamp(2.4rem,5vw,5rem)/1 "Playfair Display",serif;margin-bottom:16px}
+.final-cta p{color:rgba(255,255,255,.78);line-height:1.7;margin:0 auto 28px;max-width:640px}
+footer{background:#080503;color:rgba(255,255,255,.55);padding:34px 0}
+.footer-grid{display:flex;justify-content:space-between;gap:22px;align-items:center}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:13px}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;border-radius:8px;padding:13px 16px;font-weight:900;box-shadow:0 18px 42px rgba(37,211,102,.28)}
+.wa-float span{font-size:14px}
+@media(max-width:980px){
+  .menu-btn{display:inline-flex}
+  .nav-links{position:fixed;left:20px;right:20px;top:86px;background:#160c05;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:18px;display:none;flex-direction:column;align-items:flex-start}
+  body.menu-open .nav-links{display:flex}
+  .hero-grid,.split-grid,.faq-grid,.banner-grid{grid-template-columns:1fr}
+  .hero{padding-top:44px}
+  .quote-card{max-width:680px}
+  .trust-box{grid-template-columns:repeat(2,1fr)}
+  .trust-item:nth-child(2){border-right:0}
+  .dest-grid{grid-template-columns:1fr 1fr}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .banner-copy{padding:64px 40px}
 }
-
-/* HERO */
-.hero{background:linear-gradient(150deg,#FF6500 0%,#CC4400 35%,#150A00 100%);min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:5rem 2rem 6rem}
-.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:28px 28px}
-.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(242,194,0,.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
-.hero-plane{position:absolute;font-size:180px;opacity:.05;right:-30px;top:50%;transform:translateY(-50%);animation:planefly 8s ease-in-out infinite}
-@keyframes planefly{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-55%) translateX(-12px)}}
-.hero-content{position:relative;z-index:2;max-width:700px}
-.hero-badge{background:rgba(242,194,0,.12);border:1px solid rgba(242,194,0,.35);color:#F2C200;padding:7px 22px;border-radius:40px;font-size:11.5px;letter-spacing:2.5px;font-weight:600;display:inline-block;margin-bottom:1.8rem;text-transform:uppercase}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,8vw,5.2rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:1.2rem}
-.hero h1 em{font-style:italic;background:linear-gradient(120deg,#F2C200,#C9960A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{color:rgba(255,255,255,.82);font-size:1.05rem;font-weight:300;margin-bottom:2.8rem;line-height:1.75;letter-spacing:.3px}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn-gold{background:linear-gradient(120deg,#F2C200,#C9960A);color:#150A00;padding:15px 38px;border:none;border-radius:40px;font-weight:700;font-size:13.5px;cursor:pointer;letter-spacing:1px;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(201,150,10,.45);text-transform:uppercase}
-.btn-gold:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(201,150,10,.65)}
-.btn-outline{background:transparent;color:#fff;padding:15px 38px;border:2px solid rgba(255,255,255,.35);border-radius:40px;font-weight:500;font-size:13.5px;cursor:pointer;letter-spacing:1px;transition:all .2s}
-.btn-outline:hover{border-color:#F2C200;color:#F2C200}
-@media(max-width:700px){
-  .hero{min-height:auto;padding:4rem 1.15rem 4.4rem}
-  .hero-glow{width:340px;height:340px}
-  .hero-plane{font-size:120px;right:-42px}
-  .hero-content{max-width:390px;width:100%}
-  .hero-badge{max-width:100%;padding:7px 14px;font-size:10px;letter-spacing:1.4px;margin-bottom:1.45rem}
-  .hero h1{font-size:clamp(2.55rem,14vw,3.6rem);line-height:1.02}
-  .hero-sub{font-size:1rem;line-height:1.55;margin-bottom:2rem}
-  .hero-btns{gap:.8rem}
-  .hero-btns button{min-width:min(210px,100%);min-height:50px}
-  .btn-gold,.btn-outline{padding:13px 24px;font-size:12px;letter-spacing:.8px}
+@media(max-width:640px){
+  .container{width:min(100% - 28px,1160px)}
+  .nav{height:68px}
+  .brand-mark{width:42px;height:42px}
+  .brand-text span{letter-spacing:.16em}
+  .icon-link{display:none}
+  .nav-quote{padding:0 12px;font-size:11px}
+  .hero{min-height:auto;padding:36px 0 72px}
+  h1{font-size:clamp(3rem,16vw,4.15rem)}
+  .hero-copy p{font-size:16px}
+  .hero-actions .btn-primary,.hero-actions .btn-secondary{width:100%}
+  .quote-card{padding:18px}
+  .form-grid,.trust-box,.dest-grid,.service-grid{grid-template-columns:1fr}
+  .trust-strip{margin-top:-28px}
+  .trust-item{border-right:0;border-bottom:1px solid var(--line);padding:20px}
+  .trust-item:last-child{border-bottom:0}
+  section{padding:62px 0}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .dest-card{min-height:270px}
+  .photo-panel{min-height:420px}
+  .step{grid-template-columns:44px 1fr;padding:16px}
+  .step-num{width:44px;height:44px}
+  .banner-copy{padding:56px 24px}
+  .banner-media{min-height:300px}
+  .footer-grid{display:grid;gap:16px}
+  .wa-float{right:14px;bottom:14px;padding:12px}
+  .wa-float span{display:none}
 }
-@media(max-width:360px){
-  .hero{padding-top:3.35rem;padding-bottom:3.7rem}
-  .hero h1{font-size:2.65rem}
-  .hero-btns button{width:100%}
-}
-
-/* STATS BAR */
-.stats-bar{background:var(--dark);display:grid;grid-template-columns:repeat(4,1fr);text-align:center;border-top:1px solid rgba(200,150,10,.12)}
-.stat-item{padding:2.2rem 1rem;border-right:1px solid rgba(200,150,10,.1)}
-.stat-item:last-child{border-right:none}
-.stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;background:linear-gradient(120deg,#F2C200,#C9960A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.stat-lbl{color:rgba(255,255,255,.5);font-size:11px;letter-spacing:2px;margin-top:6px;text-transform:uppercase}
-@media(max-width:700px){
-  .stats-bar{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .stat-item{min-width:0}
-  .stat-item:nth-child(2n){border-right:none}
-  .stat-num{font-size:clamp(1.9rem,12vw,2.25rem);overflow-wrap:anywhere}
-  .stat-lbl{font-size:10px;letter-spacing:1.4px;overflow-wrap:anywhere}
-}
-
-/* SECTIONS */
-.section{padding:5.5rem 2rem;max-width:1120px;margin:0 auto}
-.sec-label{color:var(--gold);font-size:11px;letter-spacing:3.5px;font-weight:700;text-transform:uppercase;margin-bottom:.5rem}
-.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;color:var(--dark);line-height:1.15;margin-bottom:.8rem}
-.sec-title span{color:var(--orange)}
-.sec-sub{color:#777;font-size:.97rem;line-height:1.75;max-width:520px;margin-bottom:3rem}
-
-/* DESTINOS */
-.destinos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem}
-@media(max-width:900px){.destinos-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}}
-@media(max-width:620px){.destinos-grid{grid-template-columns:1fr}}
-.dest-card{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:3/2;transition:transform .35s,box-shadow .35s}
-.dest-card:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(0,0,0,.25)}
-.dest-card:hover .dest-overlay{opacity:1}
-.dest-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5.5rem}
-.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(21,10,0,.95) 0%,rgba(21,10,0,.25) 60%,transparent 100%);opacity:.65;transition:opacity .35s}
-.dest-info{position:absolute;bottom:0;left:0;right:0;padding:1.4rem 1.5rem;z-index:2}
-.dest-flag{font-size:1.1rem;margin-bottom:4px}
-.dest-name{font-family:'Playfair Display',serif;color:#fff;font-size:1.35rem;font-weight:700;line-height:1.2}
-.dest-region{color:rgba(255,255,255,.65);font-size:12px;margin-top:3px;letter-spacing:.5px}
-.dest-tag{position:absolute;top:14px;right:14px;background:linear-gradient(120deg,#F2C200,#C9960A);color:#150A00;padding:5px 13px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:1px;z-index:3;text-transform:uppercase}
-
-/* BGs */
-.bg-paris{background:linear-gradient(135deg,#5B4A90,#2E2060)}
-.bg-cancun{background:linear-gradient(135deg,#0F8B7A,#065248)}
-.bg-orlando{background:linear-gradient(135deg,#C44820,#7A2010)}
-.bg-noronha{background:linear-gradient(135deg,#0E8A50,#065030)}
-.bg-rj{background:linear-gradient(135deg,#1A7AB8,#0A4070)}
-.bg-bmk{background:linear-gradient(135deg,#8B6020,#4A3010)}
-.bg-bsb{background:linear-gradient(135deg,#2060A0,#103060)}
-.bg-dubai{background:linear-gradient(135deg,#B87020,#6A3C08)}
-.bg-sp{background:linear-gradient(135deg,#484848,#1A1A1A)}
-.bg-europa{background:linear-gradient(135deg,#204080,#0A2050)}
-
-/* POR QUE NÓS */
-.porque-bg{background:linear-gradient(160deg,var(--gold-pale),#fff);padding:5.5rem 2rem}
-.porque-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.8rem;max-width:1000px;margin:0 auto}
-.porque-card{background:#fff;border:1px solid rgba(200,150,10,.2);border-radius:18px;padding:2rem 1.5rem;text-align:center;transition:transform .3s,box-shadow .3s}
-.porque-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(201,150,10,.12)}
-.porque-icon{font-size:2.4rem;margin-bottom:1rem}
-.porque-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:.5rem}
-.porque-desc{color:#777;font-size:13px;line-height:1.7}
-
-/* COMO FUNCIONA */
-.steps-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2.5rem;max-width:900px;margin:3rem auto 0;position:relative}
-.steps-wrap::before{content:'';position:absolute;top:36px;left:80px;right:80px;height:2px;background:linear-gradient(90deg,#F2C200,#C9960A,#F2C200);opacity:.3}
-.step{text-align:center}
-.step-circle{width:72px;height:72px;background:linear-gradient(135deg,#F2C200,#C9960A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#150A00;margin:0 auto 1.2rem;box-shadow:0 6px 20px rgba(201,150,10,.35)}
-.step-t{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:.4rem}
-.step-d{color:#777;font-size:13px;line-height:1.7}
-
-/* DEPOIMENTOS */
-.depo-bg{background:var(--dark);padding:5.5rem 2rem}
-.depo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1000px;margin:3rem auto 0}
-.depo-card{background:rgba(255,255,255,.04);border:1px solid rgba(242,194,0,.15);border-radius:18px;padding:1.8rem}
-.depo-stars{color:#F2C200;font-size:15px;letter-spacing:2px;margin-bottom:.9rem}
-.depo-text{color:rgba(255,255,255,.75);font-size:14px;line-height:1.75;font-style:italic;margin-bottom:1.2rem}
-.depo-aut{display:flex;align-items:center;gap:12px}
-.depo-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#FF6500,#C9960A);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
-.depo-name{color:#fff;font-weight:600;font-size:14px}
-.depo-dest{color:#C9960A;font-size:12px;margin-top:2px}
-
-/* INSTAGRAM */
-.ig-section{padding:5rem 2rem;text-align:center;background:#fff}
-.ig-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;padding:16px 36px;border-radius:40px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(253,29,29,.3);cursor:pointer;border:none}
-.ig-btn:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(253,29,29,.45)}
-@media(max-width:700px){
-  .section,.porque-bg,.depo-bg,.ig-section{padding:3.8rem 1.1rem}
-  .sec-label{font-size:10px;letter-spacing:2.2px}
-  .sec-title{font-size:clamp(1.85rem,9vw,2.45rem)}
-  .sec-sub{margin-bottom:2.1rem}
-  .porque-grid,.steps-wrap,.depo-grid{grid-template-columns:1fr;gap:1rem}
-  .steps-wrap::before{display:none}
-  .porque-card,.depo-card{padding:1.45rem 1.2rem}
-  .dest-card{border-radius:14px}
-  .cta-sec{padding:4rem 1.1rem}
-  .cta-sec p br{display:none}
-  .wa-btn,.ig-btn{width:100%;max-width:310px;justify-content:center;padding:15px 20px}
-}
-
-/* CTA FINAL */
-.cta-sec{background:linear-gradient(150deg,#FF6500 0%,#CC4400 45%,#150A00 100%);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden}
-.cta-sec::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px}
-.cta-sec h2{font-family:'Playfair Display',serif;color:#fff;font-size:clamp(2.2rem,6vw,3.5rem);font-weight:900;margin-bottom:1rem;position:relative}
-.cta-sec h2 em{font-style:italic;background:linear-gradient(120deg,#F2C200,#C9960A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.cta-sec p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:2.5rem;position:relative;line-height:1.7}
-.wa-btn{background:#25D366;color:#fff;padding:18px 44px;border:none;border-radius:40px;font-size:16px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:12px;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 28px rgba(37,211,102,.45);position:relative}
-.wa-btn:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(37,211,102,.6)}
-.wa-num{color:rgba(255,255,255,.6);font-size:14px;margin-top:1.2rem;position:relative}
-
-/* FOOTER */
-footer{background:#0A0500;padding:2.5rem 2rem;text-align:center}
-.footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;background:linear-gradient(120deg,#F2C200,#C9960A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
-.footer-links{display:flex;justify-content:center;gap:1.5rem;margin:.8rem 0;flex-wrap:wrap}
-.footer-links a{color:rgba(255,255,255,.4);font-size:12px;text-decoration:none;letter-spacing:.5px;transition:color .2s}
-.footer-links a:hover{color:#F2C200}
-footer p{color:rgba(255,255,255,.25);font-size:12px;margin-top:.5rem}
-
-/* HERO ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-.hero-badge{animation:fadeUp .7s ease both .1s}
-.hero h1{animation:fadeUp .7s ease both .25s}
-.hero-sub{animation:fadeUp .7s ease both .4s}
-.hero-btns{animation:fadeUp .7s ease both .55s}
-
-/* ── CHATBOT WIDGET ─────────────────────────────── */
-
-to{opacity:1;transform:translateY(0)}}
-
-@keyframes bubbleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-
-35%{transform:translateY(-7px) scale(1.05)}65%{transform:translateY(-3px) scale(1.02)}}
-
-100%{inset:-20px;opacity:0}}
-
-50%{box-shadow:0 0 0 5px rgba(37,211,102,0)}}
-
-/* ── WA CHATBOT WIDGET ─────────────────────────── */
-.wa-bot {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1200;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: .65rem;
-  animation: waBotIn .7s 1.8s both;
-}
-@keyframes waBotIn {
-  from { opacity:0; transform:translateY(28px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-
-/* Balão */
-.wa-bot-bubble {
-  background: #fff;
-  border-radius: 16px 16px 4px 16px;
-  padding: .9rem 1.1rem .9rem 1rem;
-  max-width: 220px;
-  box-shadow: 0 8px 32px rgba(0,0,0,.18);
-  position: relative;
-  cursor: pointer;
-  animation: waBobble 3.5s 2.8s ease-in-out infinite;
-  transition: box-shadow .25s, transform .25s;
-}
-.wa-bot-bubble:hover { box-shadow: 0 14px 40px rgba(37,211,102,.3); transform: translateY(-2px); }
-@keyframes waBobble {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-5px); }
-}
-.wa-bot-bubble::after {
-  content: '';
-  position: absolute;
-  bottom: -7px; right: 18px;
-  width: 14px; height: 8px;
-  background: #fff;
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-}
-.wa-bot-bubble-close {
-  position: absolute; top: .3rem; right: .5rem;
-  background: none; border: none; cursor: pointer;
-  font-size: .65rem; color: #bbb; line-height: 1; padding: .15rem .3rem;
-  transition: color .2s;
-}
-.wa-bot-bubble-close:hover { color: #FF6500; }
-.wa-bot-bubble-name {
-  font-size: .58rem; font-weight: 700; letter-spacing: .15em;
-  text-transform: uppercase; color: #25D366;
-  margin-bottom: .28rem; display: flex; align-items: center; gap: .4rem;
-}
-.wa-bot-bubble-name::before {
-  content: ''; width: 7px; height: 7px; border-radius: 50%;
-  background: #25D366; display: inline-block;
-  animation: waOnlineDot 2s ease-in-out infinite;
-}
-@keyframes waOnlineDot {
-  0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
-  50%     { box-shadow: 0 0 0 4px rgba(37,211,102,0); }
-}
-.wa-bot-bubble-msg {
-  font-size: .8rem; color: #2C1800; line-height: 1.5; font-weight: 400;
-  margin-bottom: .55rem;
-}
-.wa-bot-bubble-cta {
-  display: inline-flex; align-items: center; gap: .35rem;
-  font-size: .65rem; font-weight: 700; letter-spacing: .06em;
-  text-transform: uppercase; color: #25D366;
-}
-.wa-bot-bubble.hidden {
-  opacity: 0; pointer-events: none;
-  transform: scale(.88) translateY(8px);
-  transition: all .3s ease;
-}
-
-/* Botão avatar */
-.wa-bot-btn {
-  width: 62px; height: 62px; border-radius: 50%;
-  border: none; cursor: pointer;
-  background: #25D366;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 24px rgba(37,211,102,.5);
-  position: relative;
-  animation: waBtnBounce 2.8s 2.8s ease-in-out infinite;
-  transition: transform .25s, box-shadow .25s;
-  text-decoration: none;
-}
-.wa-bot-btn:hover {
-  transform: scale(1.12) !important;
-  box-shadow: 0 12px 36px rgba(37,211,102,.7);
-  animation-play-state: paused;
-}
-@keyframes waBtnBounce {
-  0%,100% { transform: translateY(0) scale(1); }
-  35%     { transform: translateY(-7px) scale(1.05); }
-  65%     { transform: translateY(-3px) scale(1.02); }
-}
-.wa-bot-btn::before, .wa-bot-btn::after {
-  content: ''; position: absolute; inset: 0;
-  border-radius: 50%; border: 2.5px solid #25D366;
-  opacity: 0; animation: waRipple 2.8s 3.2s ease-out infinite;
-}
-.wa-bot-btn::after { animation-delay: 5s; }
-@keyframes waRipple {
-  0%   { inset: 0; opacity: .7; }
-  100% { inset: -20px; opacity: 0; }
-}
-
-@media (max-width: 600px) {
-  .wa-bot { bottom: .95rem; right: .95rem; }
-  .wa-bot-bubble { display:none; }
-  .wa-bot-btn { width:56px;height:56px; }
-  .wa-bot-btn svg{width:27px;height:27px}
-}
-
-@media(min-width:901px){
-  body{background:#FFF8EC}
-  nav{padding:1rem clamp(2.5rem,5vw,4.5rem);background:rgba(21,10,0,.96);backdrop-filter:blur(14px);box-shadow:0 14px 40px rgba(21,10,0,.18)}
-  .nav-links a{position:relative}
-  .nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:2px;background:#F2C200;transform:scaleX(0);transform-origin:center;transition:transform .25s}
-  .nav-links a:hover::after{transform:scaleX(1)}
-  .nav-ig,.nav-cta,.btn-gold,.btn-outline,.wa-btn,.ig-btn{border-radius:10px}
-  .hero{min-height:720px;text-align:left;justify-content:flex-start;padding:6.5rem clamp(4rem,9vw,8rem)}
-  .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,10,0,.2),transparent 42%,rgba(21,10,0,.36));z-index:1;pointer-events:none}
-  .hero::after{content:'';position:absolute;right:clamp(5rem,10vw,10rem);top:50%;width:min(360px,26vw);aspect-ratio:1;background:url('Post instagram de dicas para viajar com o pet11.jpg') center/cover;border-radius:14px;box-shadow:0 30px 90px rgba(21,10,0,.38);border:1px solid rgba(255,255,255,.24);transform:translateY(-50%) rotate(2deg);z-index:1}
-  .hero-content{margin-right:min(46vw,620px);max-width:620px}
-  .hero-badge{background:rgba(255,255,255,.08);border-color:rgba(242,194,0,.45)}
-  .hero h1{font-size:clamp(4.4rem,6.4vw,6.2rem);text-shadow:0 12px 40px rgba(21,10,0,.32)}
-  .hero-sub{font-size:1.18rem;max-width:460px;color:rgba(255,255,255,.88)}
-  .hero-btns{justify-content:flex-start}
-  .stats-bar{max-width:1180px;margin:-54px auto 0;position:relative;z-index:3;border:1px solid rgba(242,194,0,.12);border-radius:14px;overflow:hidden;box-shadow:0 24px 70px rgba(21,10,0,.22)}
-  .stat-item{padding:2.55rem 1rem;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0))}
-  .section{background:#fff;border-radius:0;padding-top:6.5rem}
-  .dest-card,.porque-card,.depo-card{border-radius:14px}
-  .dest-card{box-shadow:0 14px 38px rgba(21,10,0,.12)}
-  .porque-card{box-shadow:0 14px 34px rgba(201,150,10,.08)}
-  .depo-card{background:rgba(255,255,255,.055)}
-}
-
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <div class="logo-nav">
-    <div>
-      <div class="logo-rm">RM</div>
-      <div class="logo-tagline">Partiu Viagens</div>
+<div class="site">
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="RM Partiu Viagens">
+        <span class="brand-mark">RM</span>
+        <span class="brand-text"><strong>RM Partiu Viagens</strong><span>agência de viagens</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#destinos">Destinos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="icon-link" href="https://www.instagram.com/rmpartiuviagens" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="nav-quote" href="#cotacao">Cotar viagem</a>
+        <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      </div>
     </div>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#destinos" aria-label="Destinos" title="Destinos">Destinos</a></li>
-    <li><a href="#porque" aria-label="Diferenciais da RM Partiu Viagens" title="Diferenciais">RM</a></li>
-    <li><a href="#depoimentos" aria-label="Serviços para sua viagem" title="Serviços">Serviços</a></li>
-    <li><a href="#contato" aria-label="Contato pelo WhatsApp" title="WhatsApp">Zap</a></li>
-  </ul>
-  <div class="nav-right">
-    <a class="nav-ig" href="https://www.instagram.com/rmpartiuviagens" target="_blank" rel="noopener noreferrer" aria-label="Instagram da RM Partiu Viagens" title="Instagram">IG</a>
-    <button class="nav-cta" aria-label="Pedir cotação pelo WhatsApp" title="Pedir cotação" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e quero uma cotação de viagem. Destino: __. Datas: __. Pessoas: __.','_blank')">Cotação</button>
-  </div>
-</nav>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-dots"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-plane">✈</div>
-  <div class="hero-content">
-    <div class="hero-badge">✈ Roteiros no Brasil e no exterior</div>
-    <h1>Sua viagem<br><em>sem improviso</em></h1>
-    <p class="hero-sub">Passagens, hospedagem, pacotes, ingressos e aluguel de veículos organizados conforme seu destino, datas e orçamento.</p>
-    <div class="hero-btns">
-      <button class="btn-gold" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e quero uma cotação de viagem. Destino: __. Datas: __. Pessoas: __.','_blank')">✈ Pedir cotação</button>
-      <button class="btn-outline" onclick="document.getElementById('destinos').scrollIntoView({behavior:'smooth'})">Ver destinos</button>
-    </div>
-  </div>
-</section>
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">✈ Brasil, exterior e viagens sob medida</span>
+          <h1>Agência de viagens para sair do plano <em>sem improviso.</em></h1>
+          <p>A RM Partiu Viagens organiza passagens, hospedagens, pacotes, ingressos e aluguel de veículos com atendimento humano pelo WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#cotacao">Quero minha cotação</a>
+            <a class="btn-secondary" href="#destinos">Ver destinos</a>
+          </div>
+        </div>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat-item">
-    <div class="stat-num">BR</div>
-    <div class="stat-lbl">Viagens pelo Brasil</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">EXT</div>
-    <div class="stat-lbl">Roteiros internacionais</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">RM</div>
-    <div class="stat-lbl">Atendimento consultivo</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">Zap</div>
-    <div class="stat-lbl">Suporte pelo WhatsApp</div>
-  </div>
-</div>
+        <aside class="quote-card" id="cotacao" aria-label="Formulário de cotação">
+          <h2>Monte sua viagem</h2>
+          <p>Envie as informações principais. O site prepara a mensagem e abre o WhatsApp da equipe.</p>
+          <form class="quote-form" id="quoteForm">
+            <div class="field">
+              <label for="name">Seu nome</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Ex.: Ronaldo" required>
+            </div>
+            <div class="field">
+              <label for="destination">Destino desejado</label>
+              <input id="destination" name="destination" placeholder="Ex.: Orlando, Cancún, Gramado" required>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="date">Quando pretende ir</label>
+                <input id="date" name="date" placeholder="Ex.: janeiro/2027">
+              </div>
+              <div class="field">
+                <label for="travelers">Viajantes</label>
+                <select id="travelers" name="travelers">
+                  <option>1 pessoa</option>
+                  <option selected>2 pessoas</option>
+                  <option>3 pessoas</option>
+                  <option>4 pessoas</option>
+                  <option>5+ pessoas</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="style">Tipo de viagem</label>
+              <select id="style" name="style">
+                <option>Pacote completo</option>
+                <option>Passagens e hotel</option>
+                <option>Família e parques</option>
+                <option>Lua de mel</option>
+                <option>Viagem nacional</option>
+                <option>Viagem internacional</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="notes">Detalhes importantes</label>
+              <textarea id="notes" name="notes" placeholder="Orçamento aproximado, crianças, datas flexíveis, passeios, seguro..."></textarea>
+            </div>
+            <button class="btn-primary" type="submit">Enviar pelo WhatsApp</button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+        </aside>
+      </div>
+    </section>
 
-<!-- DESTINOS -->
-<div id="destinos">
-<div class="section">
-  <div class="sec-label">✈ explore o mundo</div>
-  <h2 class="sec-title">Destinos para viajar <span>do seu jeito</span></h2>
-  <p class="sec-sub">Praia, parques, Europa, Brasil ou uma rota sob medida: escolha uma inspiração e receba uma cotação alinhada ao seu plano.</p>
-  <div class="destinos-grid">
-
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Fernando de Noronha ✈️','_blank')">
-      <div class="dest-bg bg-noronha">🏝️</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">NACIONAL</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇧🇷</div>
-        <div class="dest-name">Fernando de Noronha</div>
-        <div class="dest-region">Pernambuco, Brasil</div>
+    <div class="trust-strip">
+      <div class="container trust-box">
+        <div class="trust-item"><strong>BR</strong><span>Viagens nacionais</span></div>
+        <div class="trust-item"><strong>EXT</strong><span>Roteiros internacionais</span></div>
+        <div class="trust-item"><strong>Zap</strong><span>Atendimento direto</span></div>
+        <div class="trust-item"><strong>RM</strong><span>Consultoria humana</span></div>
       </div>
     </div>
 
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Paris ✈️','_blank')">
-      <div class="dest-bg bg-paris">🗼</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">EUROPA</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇫🇷</div>
-        <div class="dest-name">Paris</div>
-        <div class="dest-region">França, Europa</div>
-      </div>
-    </div>
-
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para o Rio de Janeiro ✈️','_blank')">
-      <div class="dest-bg bg-rj">🏖️</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">NACIONAL</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇧🇷</div>
-        <div class="dest-name">Rio de Janeiro</div>
-        <div class="dest-region">Rio de Janeiro, Brasil</div>
-      </div>
-    </div>
-
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Cancún ✈️','_blank')">
-      <div class="dest-bg bg-cancun">🌴</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">PRAIA</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇲🇽</div>
-        <div class="dest-name">Cancún</div>
-        <div class="dest-region">México, América Central</div>
-      </div>
-    </div>
-
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Bonito ✈️','_blank')">
-      <div class="dest-bg bg-bmk">🐠</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">NACIONAL</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇧🇷</div>
-        <div class="dest-name">Bonito</div>
-        <div class="dest-region">Mato Grosso do Sul, Brasil</div>
-      </div>
-    </div>
-
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Orlando ✈️','_blank')">
-      <div class="dest-bg bg-orlando">🎢</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">FAMÍLIA</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇺🇸</div>
-        <div class="dest-name">Orlando</div>
-        <div class="dest-region">Flórida, Estados Unidos</div>
-      </div>
-    </div>
-
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Gramado ✈️','_blank')">
-      <div class="dest-bg bg-bsb">🏔️</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">NACIONAL</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇧🇷</div>
-        <div class="dest-name">Gramado & Canela</div>
-        <div class="dest-region">Rio Grande do Sul, Brasil</div>
-      </div>
-    </div>
-
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para Dubai ✈️','_blank')">
-      <div class="dest-bg bg-dubai">🌆</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">INTERNACIONAL</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇦🇪</div>
-        <div class="dest-name">Dubai</div>
-        <div class="dest-region">Emirados Árabes Unidos</div>
-      </div>
-    </div>
-
-    <div class="dest-card" onclick="window.open('https://wa.me/5511987569836?text=Olá! Tenho interesse no pacote para a Europa ✈️','_blank')">
-      <div class="dest-bg bg-europa">🏛️</div>
-      <div class="dest-overlay"></div>
-      <div class="dest-tag">EUROPA</div>
-      <div class="dest-info">
-        <div class="dest-flag">🇪🇺</div>
-        <div class="dest-name">Europa Clássica</div>
-        <div class="dest-region">Portugal · Espanha · Itália</div>
-      </div>
-    </div>
-
-  </div>
-  <div style="text-align:center;margin-top:2.5rem">
-    <button class="btn-gold" onclick="window.open('https://wa.me/5511987569836?text=Olá! Quero consultar opções para outro destino. Destino: __. Datas: __. Pessoas: __.','_blank')">Montar minha viagem</button>
-  </div>
-</div>
-</div>
-
-<!-- POR QUE NÓS -->
-<div id="porque" class="porque-bg">
-  <div style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
-    <div class="sec-label">💛 o que você recebe</div>
-    <h2 class="sec-title" style="color:var(--dark)">Planejamento claro <span>do orçamento ao embarque</span></h2>
-    <p style="color:#777;font-size:.97rem;line-height:1.75">Você fala com uma equipe real, compara opções com orientação e evita decidir passagem, hotel e passeios no escuro.</p>
-  </div>
-  <div class="porque-grid">
-    <div class="porque-card">
-      <div class="porque-icon">🤝</div>
-      <div class="porque-title">Cotação com seu perfil</div>
-      <p class="porque-desc">A proposta considera destino, datas, quantidade de viajantes, estilo de viagem e faixa de orçamento.</p>
-    </div>
-    <div class="porque-card">
-      <div class="porque-icon">💰</div>
-      <div class="porque-title">Escolhas mais fáceis</div>
-      <p class="porque-desc">Você recebe caminhos possíveis para comparar voos, hospedagens, pacotes e serviços sem perder tempo.</p>
-    </div>
-    <div class="porque-card">
-      <div class="porque-icon">🛡️</div>
-      <div class="porque-title">Orientação antes de reservar</div>
-      <p class="porque-desc">Tiramos dúvidas sobre roteiro, documentos, horários, traslados e detalhes importantes antes da confirmação.</p>
-    </div>
-    <div class="porque-card">
-      <div class="porque-icon">⚡</div>
-      <div class="porque-title">Conversa direta no WhatsApp</div>
-      <p class="porque-desc">Você envia o que precisa e continua o atendimento pelo canal onde já acompanha tudo com praticidade.</p>
-    </div>
-  </div>
-</div>
-
-<!-- COMO FUNCIONA -->
-<div style="background:#fff;padding:5.5rem 2rem">
-  <div style="text-align:center;max-width:600px;margin:0 auto">
-    <div class="sec-label">🗺️ simples assim</div>
-    <h2 class="sec-title" style="color:var(--dark)">Da ideia ao embarque <span>em 3 passos</span></h2>
-    <p style="color:#777;font-size:.97rem;line-height:1.75">Envie o básico pelo WhatsApp e receba uma cotação com caminho claro para reservar.</p>
-  </div>
-  <div class="steps-wrap">
-    <div class="step">
-      <div class="step-circle">1</div>
-      <div class="step-t">Conte o plano da viagem</div>
-      <p class="step-d">Envie destino, datas, quantidade de viajantes e o tipo de experiência que você procura.</p>
-    </div>
-    <div class="step">
-      <div class="step-circle">2</div>
-      <div class="step-t">Compare opções com orientação</div>
-      <p class="step-d">A equipe prepara alternativas com passagens, hospedagens, pacotes, ingressos ou aluguel de veículos.</p>
-    </div>
-    <div class="step">
-      <div class="step-circle">3</div>
-      <div class="step-t">Reserve com tudo alinhado</div>
-      <p class="step-d">Depois da confirmação, você recebe as informações necessárias para embarcar com mais clareza.</p>
-    </div>
-  </div>
-</div>
-
-<!-- DEPOIMENTOS -->
-<div id="depoimentos" class="depo-bg">
-  <div style="text-align:center;max-width:600px;margin:0 auto">
-    <div class="sec-label" style="color:#C9960A">❤️ o que podemos incluir</div>
-    <h2 class="sec-title" style="color:#fff">Serviços para montar <span>sua viagem completa</span></h2>
-    <p style="color:rgba(255,255,255,.6);font-size:.97rem;line-height:1.75">Você escolhe o destino; a RM Partiu ajuda a combinar os itens certos para reduzir retrabalho e surpresas.</p>
-  </div>
-  <div class="depo-grid">
-    <div class="depo-card">
-      <div class="depo-stars">Passagens e hospedagem</div>
-      <p class="depo-text">Busca de voos, hotéis e pacotes conforme datas, perfil dos viajantes e objetivo da viagem.</p>
-      <div class="depo-aut">
-        <div class="depo-av">1</div>
-        <div>
-          <div class="depo-name">Base da viagem</div>
-          <div class="depo-dest">✈ Voos, hotéis e pacotes</div>
+    <section class="destinations" id="destinos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Destinos com cara de férias de verdade.</h2>
+          <p>Escolha uma inspiração ou peça um roteiro sob medida. A equipe monta opções conforme datas, perfil dos viajantes e orçamento.</p>
+        </div>
+        <div class="dest-grid">
+          <a class="dest-card" href="https://wa.me/5511987569836?text=Olá! Tenho interesse em uma cotação para Fernando de Noronha." target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1590523278191-995cbcda646b?auto=format&fit=crop&w=900&q=80" alt="Mar azul em destino de praia">
+            <div class="dest-info"><span class="dest-tag">Brasil</span><h3>Fernando de Noronha</h3><p>Praia, natureza e viagem especial.</p></div>
+          </a>
+          <a class="dest-card" href="https://wa.me/5511987569836?text=Olá! Tenho interesse em uma cotação para Orlando." target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80" alt="Castelo e parque temático ao entardecer">
+            <div class="dest-info"><span class="dest-tag">Família</span><h3>Orlando</h3><p>Parques, compras e roteiro familiar.</p></div>
+          </a>
+          <a class="dest-card" href="https://wa.me/5511987569836?text=Olá! Tenho interesse em uma cotação para a Europa." target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=80" alt="Rua clássica em Paris">
+            <div class="dest-info"><span class="dest-tag">Europa</span><h3>Europa Clássica</h3><p>Portugal, Espanha, Itália, França e mais.</p></div>
+          </a>
+          <a class="dest-card" href="https://wa.me/5511987569836?text=Olá! Tenho interesse em uma cotação para Cancún." target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=80" alt="Praia tropical com água clara">
+            <div class="dest-info"><span class="dest-tag">Caribe</span><h3>Cancún</h3><p>Resorts, mar azul e descanso.</p></div>
+          </a>
+          <a class="dest-card" href="https://wa.me/5511987569836?text=Olá! Tenho interesse em uma cotação para Gramado e Canela." target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=900&q=80" alt="Cidade de montanha com clima frio">
+            <div class="dest-info"><span class="dest-tag">Serra</span><h3>Gramado & Canela</h3><p>Romance, família e clima de serra.</p></div>
+          </a>
+          <a class="dest-card" href="https://wa.me/5511987569836?text=Olá! Quero uma cotação para outro destino." target="_blank" rel="noopener noreferrer">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Viajante olhando uma paisagem de viagem">
+            <div class="dest-info"><span class="dest-tag">Sob medida</span><h3>Outro destino</h3><p>Você escolhe o lugar; nós ajudamos a montar.</p></div>
+          </a>
         </div>
       </div>
-    </div>
-    <div class="depo-card">
-      <div class="depo-stars">Ingressos e experiências</div>
-      <p class="depo-text">Apoio para incluir passeios, parques, atrações e experiências que fazem sentido no roteiro.</p>
-      <div class="depo-aut">
-        <div class="depo-av">2</div>
-        <div>
-          <div class="depo-name">Roteiro com propósito</div>
-          <div class="depo-dest">✈ Passeios e atrações</div>
+    </section>
+
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Uma agência para juntar as peças da viagem.</h2>
+          <p>Menos abas abertas, menos dúvida e uma conversa clara para transformar a ideia em reserva.</p>
+        </div>
+        <div class="service-grid">
+          <div class="service-card"><div class="service-icon">✈</div><h3>Passagens e hotéis</h3><p>Pesquisa de voos, hospedagens e pacotes compatíveis com o seu roteiro e datas.</p></div>
+          <div class="service-card"><div class="service-icon">🎟</div><h3>Ingressos e passeios</h3><p>Inclua parques, atrações, experiências e detalhes que deixam o roteiro mais completo.</p></div>
+          <div class="service-card"><div class="service-icon">🚗</div><h3>Carro e serviços extras</h3><p>Aluguel de veículos, seguro viagem e apoio para itens práticos antes do embarque.</p></div>
+          <div class="service-card"><div class="service-icon">💬</div><h3>Atendimento humano</h3><p>Você fala com a equipe pelo WhatsApp e recebe orientação antes de decidir.</p></div>
         </div>
       </div>
-    </div>
-    <div class="depo-card">
-      <div class="depo-stars">Carro, seguro e apoio</div>
-      <p class="depo-text">Orientação para aluguel de veículos, seguro viagem e detalhes práticos antes do embarque.</p>
-      <div class="depo-aut">
-        <div class="depo-av">3</div>
+    </section>
+
+    <section class="split" id="como-funciona">
+      <div class="container split-grid">
+        <div class="photo-panel">
+          <img src="Post instagram de dicas para viajar com o pet11.jpg" alt="Arte da RM Partiu Viagens com dica de viagem">
+          <div class="photo-note"><strong>RM Partiu Viagens no seu roteiro</strong><span>Atendimento consultivo para organizar datas, destino, serviços e próximos passos.</span></div>
+        </div>
         <div>
-          <div class="depo-name">Detalhes importantes</div>
-          <div class="depo-dest">✈ Serviços extras</div>
+          <div class="section-head">
+            <h2>Do orçamento ao embarque, sem conversa genérica.</h2>
+          </div>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><div><h3>Você envia o plano</h3><p>Destino, datas, quantidade de pessoas, estilo de viagem e qualquer detalhe importante.</p></div></div>
+            <div class="step"><div class="step-num">2</div><div><h3>A equipe monta alternativas</h3><p>Comparamos caminhos possíveis envolvendo voos, hotéis, pacotes, ingressos e extras.</p></div></div>
+            <div class="step"><div class="step-num">3</div><div><h3>Você decide com clareza</h3><p>Recebe orientação para escolher a opção que faz sentido para o seu perfil e orçamento.</p></div></div>
+            <div class="step"><div class="step-num">4</div><div><h3>Reserva e próximos passos</h3><p>Após confirmar, você recebe as informações principais para seguir até o embarque.</p></div></div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <section class="banner">
+      <div class="banner-grid">
+        <div class="banner-copy">
+          <h2>Viagem boa começa antes da mala.</h2>
+          <p>Quando passagens, hospedagem e passeios não conversam entre si, a viagem fica mais cara e mais cansativa. A RM Partiu ajuda a organizar o plano completo.</p>
+          <a class="btn-primary" href="#cotacao">Começar minha cotação</a>
+        </div>
+        <div class="banner-media" role="img" aria-label="Pessoa planejando viagem com mapa e mala"></div>
+      </div>
+    </section>
+
+    <section class="faq" id="duvidas">
+      <div class="container faq-grid">
+        <div>
+          <span class="eyebrow" style="color:var(--coffee);border-color:var(--line);background:#fff">Dúvidas comuns</span>
+          <div class="section-head" style="margin-top:18px;margin-bottom:0"><h2>Antes de chamar no WhatsApp.</h2></div>
+        </div>
+        <div class="faq-list">
+          <details open><summary>A cotação tem compromisso?</summary><p>Não. Você envia o plano e recebe orientação para avaliar opções antes de avançar com a reserva.</p></details>
+          <details><summary>Vocês montam viagens nacionais e internacionais?</summary><p>Sim. A equipe atende destinos no Brasil e no exterior, incluindo pacotes, passagens, hospedagens, ingressos e outros serviços.</p></details>
+          <details><summary>Posso pedir só passagem ou só hotel?</summary><p>Sim. Você pode solicitar pacote completo ou apenas os itens que precisa para a viagem.</p></details>
+          <details><summary>O atendimento é por onde?</summary><p>O contato principal é pelo WhatsApp oficial da RM Partiu Viagens: (11) 98756-9836.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contato">
+      <div class="container">
+        <h2>Pronto para tirar a viagem do grupo de ideias?</h2>
+        <p>Envie destino, datas e número de viajantes. A RM Partiu responde pelo WhatsApp com os próximos passos.</p>
+        <a class="btn-primary" href="https://wa.me/5511987569836?text=Olá! Vim pelo site e quero uma cotação de viagem. Destino: __. Datas: __. Pessoas: __." target="_blank" rel="noopener noreferrer">Falar com a RM Partiu</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><strong style="color:#fff">RM Partiu Viagens</strong><br><span>Passagens, hospedagens, pacotes, ingressos e atendimento pelo WhatsApp.</span></div>
+      <div class="footer-links">
+        <a href="https://wa.me/5511987569836" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.instagram.com/rmpartiuviagens" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="#destinos">Destinos</a>
+        <a href="#cotacao">Cotação</a>
+      </div>
     </div>
-  </div>
-</div>
+  </footer>
 
-<!-- INSTAGRAM -->
-<div class="ig-section">
-  <div class="sec-label" style="text-align:center">📷 siga nossas aventuras</div>
-  <h2 class="sec-title" style="text-align:center;margin-bottom:.8rem">Veja ofertas e ideias de roteiro no <span>Instagram</span></h2>
-  <p style="color:#777;font-size:.97rem;line-height:1.75;max-width:450px;margin:0 auto 2rem;text-align:center">Promoções, destinos em alta e conteúdos práticos para decidir sua próxima viagem com mais segurança.</p>
-  <div style="text-align:center">
-    <button class="ig-btn" onclick="window.open('https://www.instagram.com/rmpartiuviagens','_blank')">
-      📷 @rmpartiuviagens
-    </button>
-  </div>
-</div>
-
-<!-- CTA FINAL -->
-<div id="contato" class="cta-sec">
-  <h2>Receba uma cotação <em>sem compromisso</em></h2>
-  <p>Envie destino, datas e quantidade de viajantes.<br>A equipe retorna com opções alinhadas ao seu perfil.</p>
-  <button class="wa-btn" onclick="window.open('https://wa.me/5511987569836?text=Olá! Vim pelo site e quero uma cotação de viagem. Destino: __. Datas: __. Pessoas: __.','_blank')">
-    💬 Pedir minha cotação agora
-  </button>
-  <div class="wa-num">(11) 98756-9836</div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">RM Partiu Viagens</div>
-  <div class="footer-links">
-    <a href="https://wa.me/5511987569836" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a href="https://www.instagram.com/rmpartiuviagens" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a href="#destinos">Destinos</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <p>© 2026 RM Partiu Viagens · Passagens, hospedagens, pacotes, ingressos e atendimento pelo WhatsApp</p>
-</footer>
-
-
-<!-- ══ WA CHATBOT WIDGET ══════════════════════════ -->
-<div class="wa-bot" id="waBot">
-
-  <!-- Balão de fala -->
-  <div class="wa-bot-bubble" id="waBotBubble"
-       onclick="window.open('https://wa.me/5511987569836?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+uma+cota%C3%A7%C3%A3o+de+viagem.+Destino%3A+__.+Datas%3A+__.+Pessoas%3A+__.','_blank')">
-    <button class="wa-bot-bubble-close" onclick="hideWaBubble(event)" aria-label="Fechar">✕</button>
-    <div class="wa-bot-bubble-name">✈ Matteo · atendimento</div>
-    <div class="wa-bot-bubble-msg">Diga destino, datas e viajantes. Eu te levo para uma cotação rápida no WhatsApp.</div>
-    <div class="wa-bot-bubble-cta">💬 Começar cotação →</div>
-  </div>
-
-  <!-- Botão avatar WhatsApp -->
-  <a class="wa-bot-btn"
-     href="https://wa.me/5511987569836?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+uma+cota%C3%A7%C3%A3o+de+viagem.+Destino%3A+__.+Datas%3A+__.+Pessoas%3A+__."
-     target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-
+  <a class="wa-float" href="https://wa.me/5511987569836?text=Olá! Vim pelo site e quero uma cotação de viagem. Destino: __. Datas: __. Pessoas: __." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">💬 <span>WhatsApp</span></a>
 </div>
 
 <script>
-function hideWaBubble(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  document.getElementById('waBotBubble').classList.add('hidden');
-}
-// Reaparece após 30s se fechado
-setTimeout(() => {
-  const b = document.getElementById('waBotBubble');
-  if (b && b.classList.contains('hidden')) b.classList.remove('hidden');
-}, 30000);
-</script>
+const menuButton = document.querySelector(".menu-btn");
+menuButton?.addEventListener("click", () => {
+  const open = document.body.classList.toggle("menu-open");
+  menuButton.setAttribute("aria-expanded", String(open));
+});
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+    menuButton?.setAttribute("aria-expanded", "false");
+  });
+});
 
+const form = document.getElementById("quoteForm");
+const statusEl = document.getElementById("formStatus");
+form?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  statusEl.textContent = "Preparando mensagem...";
+  const payload = Object.fromEntries(new FormData(form).entries());
+  try {
+    const response = await fetch("/api/quote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "Não foi possível gerar a cotação.");
+    statusEl.textContent = "Abrindo WhatsApp...";
+    window.open(data.whatsappUrl, "_blank", "noopener,noreferrer");
+  } catch (error) {
+    const fallback = `https://wa.me/5511987569836?text=${encodeURIComponent("Olá! Vim pelo site e quero uma cotação de viagem. Destino: " + (payload.destination || "__") + ". Datas: " + (payload.date || "__") + ". Pessoas: " + (payload.travelers || "__") + ".")}`;
+    statusEl.textContent = "Abrindo WhatsApp direto.";
+    window.open(fallback, "_blank", "noopener,noreferrer");
+  }
+});
+</script>
 <script>
   window.va = window.va || function () {
     (window.vaq = window.vaq || []).push(arguments);
   };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
-
 </body>
 </html>
