@@ -68,6 +68,9 @@ h1 em{font-style:normal;color:#f5c247}
 .quote-card h2{font:900 30px/1.05 "Playfair Display",serif;margin-bottom:8px}
 .quote-card p{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:18px}
 .quote-form{display:grid;gap:12px}
+.quick-destinations{display:flex;flex-wrap:wrap;gap:8px;margin:-4px 0 4px}
+.quick-destinations button{border:1px solid rgba(242,100,25,.22);background:#fff7ed;color:#7c2d12;border-radius:8px;padding:8px 10px;font-size:12px;font-weight:800}
+.quick-destinations button:hover{border-color:var(--orange);background:#fff0dc}
 .field{display:grid;gap:6px}
 .field label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#695544}
 .field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:8px;min-height:46px;padding:11px 12px;color:var(--ink);outline:none}
@@ -75,6 +78,7 @@ h1 em{font-style:normal;color:#f5c247}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(242,100,25,.12)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .form-status{font-size:13px;color:var(--teal);min-height:18px}
+.form-trust{display:flex;align-items:flex-start;gap:9px;background:#f3f8f7;border:1px solid rgba(15,118,110,.14);border-radius:8px;padding:11px 12px;color:#31524d;font-size:12px;line-height:1.55}
 .trust-strip{margin-top:-42px;position:relative;z-index:4}
 .trust-box{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
 .trust-item{padding:24px;border-right:1px solid var(--line)}
@@ -82,6 +86,13 @@ h1 em{font-style:normal;color:#f5c247}
 .trust-item strong{display:block;font:900 28px/1 "Playfair Display",serif;color:var(--orange)}
 .trust-item span{display:block;margin-top:8px;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
 section{padding:88px 0}
+.popular{padding:74px 0;background:#fff}
+.popular-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.popular-card{border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,#fff,#fff8ed);padding:22px;display:grid;gap:12px;box-shadow:0 14px 34px rgba(35,19,8,.08)}
+.popular-card span{color:var(--orange);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}
+.popular-card h3{font:900 24px/1.05 "Playfair Display",serif}
+.popular-card p{color:var(--muted);font-size:14px;line-height:1.65}
+.popular-card a{font-size:13px;font-weight:900;color:var(--teal)}
 .section-head{display:flex;justify-content:space-between;gap:26px;align-items:end;margin-bottom:34px}
 .section-head h2{font:900 clamp(2.2rem,4.5vw,4rem)/1 "Playfair Display",serif;max-width:720px}
 .section-head p{color:var(--muted);line-height:1.75;max-width:430px}
@@ -147,6 +158,7 @@ footer{background:#080503;color:rgba(255,255,255,.55);padding:34px 0}
   .trust-item:nth-child(2){border-right:0}
   .dest-grid{grid-template-columns:1fr 1fr}
   .service-grid{grid-template-columns:1fr 1fr}
+  .popular-grid{grid-template-columns:1fr}
   .banner-copy{padding:64px 40px}
 }
 @media(max-width:640px){
@@ -189,6 +201,7 @@ footer{background:#080503;color:rgba(255,255,255,.55);padding:34px 0}
         <span class="brand-text"><strong>RM Partiu Viagens</strong><span>agência de viagens</span></span>
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#mais-pedidos">Mais pedidos</a>
         <a href="#destinos">Destinos</a>
         <a href="#servicos">Serviços</a>
         <a href="#como-funciona">Como funciona</a>
@@ -223,6 +236,12 @@ footer{background:#080503;color:rgba(255,255,255,.55);padding:34px 0}
         <aside class="quote-card" id="cotacao" aria-label="Formulário de cotação">
           <h2>Monte sua viagem</h2>
           <p>Envie as informações principais. O site prepara a mensagem e abre o WhatsApp da equipe.</p>
+          <div class="quick-destinations" aria-label="Destinos rápidos">
+            <button type="button" data-destination="Orlando">Orlando</button>
+            <button type="button" data-destination="Cancún">Cancún</button>
+            <button type="button" data-destination="Europa">Europa</button>
+            <button type="button" data-destination="Gramado & Canela">Gramado</button>
+          </div>
           <form class="quote-form" id="quoteForm">
             <div class="field">
               <label for="name">Seu nome</label>
@@ -264,6 +283,7 @@ footer{background:#080503;color:rgba(255,255,255,.55);padding:34px 0}
               <textarea id="notes" name="notes" placeholder="Orçamento aproximado, crianças, datas flexíveis, passeios, seguro..."></textarea>
             </div>
             <button class="btn-primary" type="submit">Enviar pelo WhatsApp</button>
+            <div class="form-trust">✓ Cotação sem compromisso. Você conversa com a equipe antes de decidir qualquer reserva.</div>
             <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
           </form>
         </aside>
@@ -278,6 +298,20 @@ footer{background:#080503;color:rgba(255,255,255,.55);padding:34px 0}
         <div class="trust-item"><strong>RM</strong><span>Consultoria humana</span></div>
       </div>
     </div>
+
+    <section class="popular" id="mais-pedidos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Viagens que saem rápido do grupo de ideias.</h2>
+          <p>Atalhos para os pedidos mais comuns. Escolha um perfil e a equipe já entende melhor o tipo de cotação.</p>
+        </div>
+        <div class="popular-grid">
+          <div class="popular-card"><span>família</span><h3>Parques e diversão</h3><p>Orlando, Beto Carrero, resorts e viagens pensadas para adultos e crianças.</p><a href="#cotacao" data-prefill="Orlando ou parques">Cotar viagem em família →</a></div>
+          <div class="popular-card"><span>praia</span><h3>Descanso no litoral</h3><p>Cancún, Nordeste, Fernando de Noronha e destinos para relaxar sem complicar o roteiro.</p><a href="#cotacao" data-prefill="Praia ou resort">Cotar viagem de praia →</a></div>
+          <div class="popular-card"><span>internacional</span><h3>Primeira viagem ao exterior</h3><p>Europa, Caribe, Estados Unidos e orientação para organizar documentos, voos e hospedagem.</p><a href="#cotacao" data-prefill="Primeira viagem internacional">Cotar viagem internacional →</a></div>
+        </div>
+      </div>
+    </section>
 
     <section class="destinations" id="destinos">
       <div class="container">
@@ -412,6 +446,14 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
   link.addEventListener("click", () => {
     document.body.classList.remove("menu-open");
     menuButton?.setAttribute("aria-expanded", "false");
+  });
+});
+
+const destinationInput = document.getElementById("destination");
+document.querySelectorAll("[data-destination], [data-prefill]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const value = button.getAttribute("data-destination") || button.getAttribute("data-prefill");
+    if (destinationInput && value) destinationInput.value = value;
   });
 });
 
