@@ -16,7 +16,10 @@ export async function POST(request: NextRequest) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Dados inválidos." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Não conseguimos ler os dados enviados. Tente novamente." },
+      { status: 400 },
+    );
   }
 
   const name = clean(body.name, 80);
@@ -28,13 +31,13 @@ export async function POST(request: NextRequest) {
 
   if (!name || !destination) {
     return NextResponse.json(
-      { error: "Nome e destino são obrigatórios." },
+      { error: "Conte seu nome e o destino para continuarmos." },
       { status: 400 },
     );
   }
 
   const lines = [
-    "Olá! Vim pelo site da RM Partiu Viagens e quero uma cotação.",
+    "Olá! Vim pelo site da RM Partiu Viagens e quero planejar uma viagem com vocês.",
     `Nome: ${name}`,
     `Destino: ${destination}`,
     date ? `Data prevista: ${date}` : "Data prevista: ainda estou definindo",

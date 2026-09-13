@@ -4,3 +4,6 @@ npm-debug.log*
 dev-server*.log
 
 .vercel
+.playwright-cli
+output
+reports
