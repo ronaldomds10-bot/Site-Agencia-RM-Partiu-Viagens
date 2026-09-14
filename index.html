@@ -571,6 +571,38 @@
           transition: none;
         }
       }
+      @media (min-width: 851px) and (max-height: 760px) {
+        .hero {
+          height: 100vh;
+          min-height: 640px;
+        }
+        .hero-copy {
+          padding-top: 22px;
+          padding-bottom: 88px;
+        }
+        .hero h1 {
+          font-size: clamp(60px, 6vw, 82px);
+          margin: 18px 0;
+        }
+        .hero-copy p {
+          max-width: 500px;
+          margin: 0;
+          font-size: 15px;
+          line-height: 1.5;
+        }
+        .hero-actions .btn {
+          margin-top: 18px;
+        }
+        .destination {
+          bottom: 18px;
+        }
+        .destination b {
+          font-size: 20px;
+        }
+        .controls {
+          bottom: 27px;
+        }
+      }
       @media (max-width: 850px) {
         .hero {
           min-height: 720px;
