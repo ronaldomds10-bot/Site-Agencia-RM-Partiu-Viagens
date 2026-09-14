@@ -21,6 +21,20 @@
       property="og:image"
       content="https://images.pexels.com/videos/30338259/beach-nordeste-ocean-porto-de-galinhas-30338259.jpeg?auto=compress&dpr=1&h=900&w=1600"
     />
+    <meta property="og:url" content="https://rmpartiuviagens.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="RM PARTIU VIAGENS | Sua viagem cuidada de verdade"
+    />
+    <meta
+      name="twitter:description"
+      content="Atendimento humano antes, durante e depois da sua viagem."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.pexels.com/videos/30338259/beach-nordeste-ocean-porto-de-galinhas-30338259.jpeg?auto=compress&dpr=1&h=900&w=1600"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -60,6 +74,9 @@
       img {
         display: block;
         max-width: 100%;
+      }
+      [hidden] {
+        display: none !important;
       }
       .hero {
         height: 100vh;
@@ -398,8 +415,9 @@
         line-height: 1.5;
       }
       .step span {
-        color: var(--orange);
+        color: #a8420f;
         font-size: 11px;
+        font-weight: 700;
         margin-right: 18px;
       }
       .plan {
@@ -547,7 +565,9 @@
         html {
           scroll-behavior: auto;
         }
-        .slide {
+        .slide,
+        .journey-slide,
+        .btn {
           transition: none;
         }
       }
@@ -651,7 +671,10 @@
         }
         .hero-actions {
           display: grid;
-          width: max-content;
+          width: min(100%, 290px);
+        }
+        .hero-actions .btn {
+          width: 100%;
         }
         .hero-actions .btn {
           margin-top: 0;
@@ -662,8 +685,256 @@
         .section h2 {
           font-size: 46px;
         }
+        .wa {
+          width: 52px;
+          height: 52px;
+          padding: 0;
+          display: grid;
+          place-items: center;
+          font-size: 0;
+        }
+        .wa::before {
+          content: "WA";
+          font-size: 11px;
+          letter-spacing: 0.08em;
+        }
       }
-      .journey-stage{position:relative;min-height:700px;padding:0 8vw;display:grid;grid-template-columns:.82fr 1.18fr;gap:7vw;align-items:center;overflow:hidden;color:#fff;background:#173a3c}.journey-slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .55s ease;background-position:center;background-size:cover}.journey-slide.active{opacity:1;pointer-events:auto}.journey-slide:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#06171bf2 0%,#0a2629da 38%,#0a262988 68%,#0a262955 100%)}.journey-content,.journey-collage,.journey-controls{position:relative;z-index:2}.journey-content{grid-column:1;max-width:440px}.journey-kicker{display:inline-flex;border:1px solid #ffffffaa;border-radius:999px;padding:9px 14px;font-size:9px;letter-spacing:.22em;text-transform:uppercase}.journey-content h2{font-size:clamp(54px,6.4vw,96px);font-weight:300;line-height:.9;letter-spacing:-.07em;margin:22px 0 18px}.journey-content p{font-size:17px;line-height:1.65;color:#e3ecea;max-width:390px}.journey-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.journey-tags span{border:1px solid #ffffff88;border-radius:999px;padding:8px 12px;font-size:9px;letter-spacing:.16em;text-transform:uppercase}.journey-content .btn{margin-top:26px}.journey-collage{grid-column:2;display:flex;align-items:center;justify-content:center;min-height:430px}.journey-photo{width:52%;height:355px;object-fit:cover;box-shadow:0 24px 60px #0005}.journey-photo.secondary{width:39%;height:285px;margin-left:-8%;margin-top:150px;z-index:2}.journey-controls{position:absolute;z-index:3;left:50%;bottom:38px;transform:translateX(-50%);display:flex;align-items:center;gap:20px}.journey-controls button{width:48px;height:44px;border:0;background:transparent;color:#fff;font-size:37px;cursor:pointer}.journey-count{font-size:12px;letter-spacing:.18em;min-width:42px;text-align:center}.journey-dots{position:absolute;z-index:3;left:8vw;bottom:44px;display:flex;gap:7px}.journey-dots button{width:32px;height:3px;border:0;background:#ffffff66;padding:0;cursor:pointer}.journey-dots button.active{background:var(--peach);width:52px}@media(max-width:850px){.journey-stage{display:block;min-height:760px;padding:75px 7vw 100px}.journey-content{max-width:100%}.journey-content h2{font-size:62px}.journey-collage{min-height:320px;margin-top:24px}.journey-photo{height:260px}.journey-photo.secondary{height:210px;margin-top:100px}.journey-dots{left:7vw;bottom:42px}.journey-controls{bottom:28px}}@media(max-width:560px){.journey-content h2{font-size:52px}.journey-content p{font-size:16px}.journey-collage{min-height:275px}.journey-photo{height:220px}.journey-photo.secondary{height:175px;margin-top:90px}}
+      .journey-stage {
+        position: relative;
+        min-height: 760px;
+        overflow: hidden;
+        color: #fff;
+        background: #173a3c;
+      }
+      .journey-slide {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1.18fr);
+        gap: 7vw;
+        align-items: center;
+        padding: 72px 8vw 108px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.55s ease;
+        background-position: center;
+        background-size: cover;
+      }
+      .journey-slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .journey-slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          #06171bf2 0%,
+          #0a2629da 38%,
+          #0a262988 68%,
+          #0a262955 100%
+        );
+      }
+      .journey-content,
+      .journey-collage,
+      .journey-controls,
+      .journey-dots {
+        position: relative;
+        z-index: 2;
+      }
+      .journey-content {
+        grid-column: 1;
+        width: 100%;
+        max-width: 440px;
+      }
+      .journey-kicker {
+        display: inline-flex;
+        border: 1px solid #ffffffaa;
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 9px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+      .journey-content h2 {
+        font-size: clamp(54px, 6.4vw, 96px);
+        font-weight: 300;
+        line-height: 0.9;
+        letter-spacing: -0.07em;
+        margin: 22px 0 18px;
+      }
+      .journey-content p {
+        font-size: 17px;
+        line-height: 1.65;
+        color: #e3ecea;
+        max-width: 390px;
+      }
+      .journey-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 24px;
+      }
+      .journey-tags span {
+        border: 1px solid #ffffff88;
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .journey-content .btn {
+        margin-top: 26px;
+      }
+      .journey-collage {
+        grid-column: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        min-height: 430px;
+      }
+      .journey-photo {
+        width: 58%;
+        height: clamp(300px, 25vw, 390px);
+        object-fit: cover;
+        box-shadow: 0 24px 60px #0005;
+      }
+      .journey-photo.secondary {
+        width: 42%;
+        height: clamp(240px, 20vw, 310px);
+        margin-left: -10%;
+        margin-top: 130px;
+        z-index: 2;
+      }
+      .journey-controls {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .journey-controls button {
+        width: 48px;
+        height: 48px;
+        border: 0;
+        background: transparent;
+        color: #fff;
+        font-size: 37px;
+        cursor: pointer;
+      }
+      .journey-count {
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        min-width: 42px;
+        text-align: center;
+      }
+      .journey-dots {
+        position: absolute;
+        z-index: 3;
+        left: 8vw;
+        bottom: 50px;
+        display: flex;
+        gap: 7px;
+      }
+      .journey-dots button {
+        position: relative;
+        width: 32px;
+        height: 3px;
+        border: 0;
+        background: #ffffff66;
+        padding: 0;
+        cursor: pointer;
+      }
+      .journey-dots button::before {
+        content: "";
+        position: absolute;
+        inset: -20px 0;
+      }
+      .journey-dots button.active {
+        background: var(--peach);
+        width: 52px;
+      }
+      @media (max-width: 850px) {
+        .journey-stage {
+          min-height: 890px;
+        }
+        .journey-slide {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto minmax(300px, 1fr);
+          gap: 24px;
+          align-content: start;
+          padding: 58px 7vw 130px;
+        }
+        .journey-content {
+          grid-column: 1;
+          max-width: 620px;
+        }
+        .journey-content h2 {
+          font-size: clamp(52px, 8vw, 66px);
+        }
+        .journey-collage {
+          grid-column: 1;
+          min-height: 330px;
+        }
+        .journey-photo {
+          height: 280px;
+        }
+        .journey-photo.secondary {
+          height: 225px;
+          margin-top: 90px;
+        }
+        .journey-dots {
+          left: 50%;
+          bottom: 88px;
+          transform: translateX(-50%);
+        }
+        .journey-controls {
+          bottom: 18px;
+        }
+      }
+      @media (max-width: 560px) {
+        .journey-stage {
+          min-height: 820px;
+        }
+        .journey-slide {
+          grid-template-rows: auto minmax(245px, 1fr);
+          gap: 18px;
+          padding: 48px 6vw 126px;
+        }
+        .journey-content h2 {
+          font-size: clamp(44px, 13vw, 52px);
+          margin: 18px 0 14px;
+        }
+        .journey-content p {
+          font-size: 16px;
+          margin: 0;
+        }
+        .journey-tags {
+          margin-top: 18px;
+        }
+        .journey-content .btn {
+          margin-top: 20px;
+        }
+        .journey-collage {
+          min-height: 255px;
+        }
+        .journey-photo {
+          width: 62%;
+          height: 220px;
+        }
+        .journey-photo.secondary {
+          width: 45%;
+          height: 175px;
+          margin-left: -12%;
+          margin-top: 72px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -911,7 +1182,7 @@
     <section class="section proof" id="avaliacoes">
       <span class="eyebrow">Avaliações reais no Google</span>
       <h2>Quem viaja com a gente conta.</h2>
-      <div class="rating" aria-label="Nota 5 de 5 em 22 avaliações">
+      <div class="rating" role="img" aria-label="Nota 5 de 5 em 22 avaliações">
         <span class="stars">★★★★★</span><strong>5,0</strong
         ><span>22 avaliações no Google</span>
       </div>
@@ -922,7 +1193,7 @@
               <h3>Aline Vieira</h3>
               <small>Avaliação verificada no Google</small>
             </div>
-            <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            <span class="stars" role="img" aria-label="5 estrelas">★★★★★</span>
           </div>
           <p>
             Aline destaca o cuidado na escolha de dias e horários e o
@@ -935,7 +1206,7 @@
               <h3>João Vinicius</h3>
               <small>Avaliação verificada no Google</small>
             </div>
-            <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            <span class="stars" role="img" aria-label="5 estrelas">★★★★★</span>
           </div>
           <p>
             João já está na segunda viagem com a agência e valoriza a atenção, a
@@ -948,7 +1219,7 @@
               <h3>Rafael Luis</h3>
               <small>Avaliação verificada no Google</small>
             </div>
-            <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            <span class="stars" role="img" aria-label="5 estrelas">★★★★★</span>
           </div>
           <p>
             Rafael elogia a organização, os preços e o apoio com o aluguel do
