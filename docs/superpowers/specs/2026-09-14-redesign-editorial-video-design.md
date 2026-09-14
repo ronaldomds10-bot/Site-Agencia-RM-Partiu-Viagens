@@ -74,7 +74,7 @@ As trocas ocorrerão por transição de opacidade, sem cortes bruscos. A duraç�
 
 O carrossel pausará quando a aba ficar inativa e respeitará `prefers-reduced-motion`. Em conexões limitadas, dispositivos com economia de dados ou navegadores sem reprodução automática, o hero mostrará uma imagem estática otimizada.
 
-## Seção de destinos em vídeo
+## Seção de destinos em destaque
 
 A página terá uma seção “Descubra o Brasil” com os principais destinos procurados:
 
@@ -86,9 +86,9 @@ A página terá uma seção “Descubra o Brasil” com os principais destinos p
 6. Bahia;
 7. Lençóis Maranhenses.
 
-Os destinos serão apresentados em cartões verticais com recorte arqueado, nome, região e CTA para iniciar uma conversa. No desktop, os cartões poderão reproduzir o vídeo quando recebem foco, hover ou destaque. No mobile, somente um vídeo poderá tocar por vez e a experiência não dependerá de hover.
+Somente o hero utilizará vídeo. Logo abaixo dele, os destinos serão apresentados em um trilho editorial horizontal com fotos estáticas reais, seguindo o ritmo visual da referência aprovada sem copiar sua composição exata.
 
-Cada cartão terá imagem estática de fallback para carregamento, economia de dados, falhas e preferência de movimento reduzido.
+Cada cartão terá fotografia correspondente ao destino, nome, estado ou região e CTA para iniciar uma conversa. No desktop, três cartões ficarão visíveis por vez, acompanhados de setas anterior/próximo e indicação de continuidade. No mobile, o trilho será adaptado para rolagem horizontal com controles acessíveis. Não serão usadas imagens genéricas ou pertencentes a outro destino.
 
 ## Origem e licença dos vídeos
 
@@ -111,17 +111,14 @@ Serão evitados clipes com marcas, logotipos, propriedades privadas sensíveis o
 - reprodução automática somente sem áudio, com `muted`, `loop` e `playsinline`;
 - `poster` obrigatório para cada vídeo;
 - preload restrito a metadados ou ao mínimo necessário;
-- carregamento tardio dos vídeos abaixo da dobra;
 - resolução e bitrate ajustados para web, sem arquivos 4K desnecessários;
-- vídeos de destino pausados fora da área visível;
-- apenas um vídeo de destino reproduzido simultaneamente em telas móveis;
 - fallback para imagens quando a conexão, o navegador ou a preferência do usuário desaconselharem movimento.
 
 ## Narrativa e seções
 
 1. **Hero cinematográfico:** apresenta RM PARTIU VIAGENS, promessa de cuidado e CTA principal.
 2. **Jornada de cuidado:** antes, check-in, durante e depois, em faixa editorial leve.
-3. **Descubra o Brasil:** destinos em vídeo com composição arqueada.
+3. **Descubra o Brasil:** trilho editorial com fotografias estáticas reais de cada destino.
 4. **Viagens para cada momento:** lazer, casais, trabalho e grupos em composição editorial assimétrica.
 5. **Como cuidamos:** processo do planejamento ao pós-viagem, com fotografia e etapas claras.
 6. **Serviços integrados:** passagens, hospedagem, ingressos, transporte, seguro e suporte.
@@ -134,7 +131,7 @@ Serão evitados clipes com marcas, logotipos, propriedades privadas sensíveis o
 - navegação sticky com mudança de fundo conforme a rolagem;
 - menu móvel acessível e com fechamento previsível;
 - estados de hover, foco, pressionado, carregamento e desabilitado;
-- vídeos controlados por visibilidade e preferência do usuário;
+- vídeo do hero controlado por visibilidade e preferência do usuário;
 - transições entre 150 e 300 ms;
 - suporte a `prefers-reduced-motion`;
 - formulário com botão desabilitado durante o envio e mensagem clara de sucesso ou erro;
@@ -148,8 +145,7 @@ Serão evitados clipes com marcas, logotipos, propriedades privadas sensíveis o
 - vídeo com enquadramento específico e poster adequado;
 - navegação compacta, nome completo preservado e CTA acessível;
 - títulos ajustados sem cortes;
-- destinos navegáveis por rolagem vertical ou carrossel com controles visíveis;
-- somente um vídeo de destino em reprodução;
+- destinos navegáveis por trilho horizontal com controles visíveis;
 - ausência de rolagem horizontal.
 
 ### Tablet
