@@ -43,9 +43,9 @@ O hero usará uma fonte sem serifa elegante, de peso leve e escala ampla, com co
 
 ## Primeira dobra
 
-O hero ocupará a maior parte da primeira tela e terá:
+O hero ocupará a tela inteira e terá:
 
-- vídeo cinematográfico de fundo relacionado ao Brasil ou à experiência de viajar;
+- carrossel automático de vídeos cinematográficos dos destinos brasileiros definidos;
 - gradiente verde-petróleo para garantir contraste do conteúdo;
 - navegação em dois níveis no desktop, simplificada no mobile;
 - logotipo oficial e nome completo RM PARTIU VIAGENS;
@@ -56,16 +56,35 @@ O hero ocupará a maior parte da primeira tela e terá:
 
 O formulário completo não ficará dentro do hero. A primeira dobra priorizará emoção, posicionamento e um caminho claro para conversão.
 
+### Carrossel automático do hero
+
+O vídeo de fundo alternará automaticamente, nesta ordem editorial inicial:
+
+1. Porto de Galinhas;
+2. Maragogi;
+3. João Pessoa;
+4. Rio de Janeiro;
+5. Natal;
+6. Bahia;
+7. Lençóis Maranhenses.
+
+Cada cena exibirá o nome do destino de forma discreta. O título, o posicionamento e a ação principal da RM PARTIU VIAGENS permanecerão estáveis para preservar leitura e conversão.
+
+As trocas ocorrerão por transição de opacidade, sem cortes bruscos. A duração será ajustada para permitir que o visitante reconheça o destino sem tornar a abertura lenta. Controles manuais discretos permitirão avançar, voltar ou selecionar uma cena; portanto, a experiência não dependerá apenas da rotação automática.
+
+O carrossel pausará quando a aba ficar inativa e respeitará `prefers-reduced-motion`. Em conexões limitadas, dispositivos com economia de dados ou navegadores sem reprodução automática, o hero mostrará uma imagem estática otimizada.
+
 ## Seção de destinos em vídeo
 
 A página terá uma seção “Descubra o Brasil” com os principais destinos procurados:
 
-1. Fernando de Noronha;
-2. Rio de Janeiro;
-3. Lençóis Maranhenses;
-4. Gramado e Canela;
-5. Foz do Iguaçu;
-6. Nordeste, representado por um destino litorâneo com material adequado.
+1. Porto de Galinhas;
+2. Maragogi;
+3. João Pessoa;
+4. Rio de Janeiro;
+5. Natal;
+6. Bahia;
+7. Lençóis Maranhenses.
 
 Os destinos serão apresentados em cartões verticais com recorte arqueado, nome, região e CTA para iniciar uma conversa. No desktop, os cartões poderão reproduzir o vídeo quando recebem foco, hover ou destaque. No mobile, somente um vídeo poderá tocar por vez e a experiência não dependerá de hover.
 
@@ -125,7 +144,7 @@ Serão evitados clipes com marcas, logotipos, propriedades privadas sensíveis o
 
 ### Mobile
 
-- hero legível sem esconder completamente a próxima seção;
+- hero em tela cheia, com indicação visual de que existe conteúdo abaixo;
 - vídeo com enquadramento específico e poster adequado;
 - navegação compacta, nome completo preservado e CTA acessível;
 - títulos ajustados sem cortes;
