@@ -1116,6 +1116,87 @@
           transition: none;
         }
       }
+      .hero {
+        height: auto;
+        min-height: max(700px, 100svh);
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+      }
+      .hero-copy {
+        align-self: center;
+      }
+      .hero-footer {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
+        align-items: end;
+        gap: 28px;
+        min-width: 0;
+        padding: 10px 6vw 26px;
+      }
+      .hero-footer::after {
+        content: "";
+        min-width: 170px;
+      }
+      .hero-footer .destination,
+      .hero-footer .controls {
+        position: static;
+        inset: auto;
+        transform: none;
+      }
+      .hero-footer .destination {
+        max-width: 100%;
+        text-align: left;
+      }
+      .hero-footer .controls {
+        align-self: center;
+        justify-self: center;
+      }
+      @media (max-width: 850px) {
+        .hero {
+          min-height: max(720px, 100svh);
+          grid-template-rows: auto auto auto auto;
+        }
+        .hero-copy {
+          align-self: start;
+          padding-bottom: 38px;
+        }
+        .hero-footer {
+          grid-template-columns: 1fr;
+          align-items: start;
+          gap: 22px;
+          padding: 8px 7vw 82px;
+        }
+        .hero-footer::after {
+          display: none;
+        }
+        .hero-footer .controls {
+          justify-self: start;
+        }
+      }
+      @media (max-width: 560px) {
+        .hero-copy {
+          padding-top: clamp(32px, 8vh, 58px);
+        }
+        .hero-footer {
+          padding-bottom: 30px;
+        }
+        .wa {
+          position: static;
+          width: calc(100% - 12vw);
+          height: auto;
+          min-height: 48px;
+          margin: 18px 6vw;
+          padding: 14px 20px;
+          place-items: center;
+          font-size: 12px;
+          text-align: center;
+        }
+        .wa::before {
+          content: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1225,10 +1306,12 @@
           ><a class="btn outline" href="#planejar">Planeje sua viagem</a>
         </div>
       </section>
-      <div class="destination">
-        <small>Agora viajando por</small><b id="place">Porto de Galinhas</b>
+      <div class="hero-footer">
+        <div class="destination">
+          <small>Agora viajando por</small><b id="place">Porto de Galinhas</b>
+        </div>
+        <div class="controls" id="controls"></div>
       </div>
-      <div class="controls" id="controls"></div>
     </main>
     <section class="travel-showcase" id="destinos" aria-labelledby="showcase-title">
       <div class="showcase-heading">
