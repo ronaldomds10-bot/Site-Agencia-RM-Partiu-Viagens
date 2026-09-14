@@ -935,6 +935,151 @@
           margin-top: 72px;
         }
       }
+      .travel-showcase {
+        padding: 96px 6vw 110px;
+        background: #082529;
+        border-top: 1px solid var(--line);
+      }
+      .showcase-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 42px;
+      }
+      .showcase-heading h2 {
+        max-width: 760px;
+        margin: 14px 0 0;
+        font-size: clamp(44px, 5.6vw, 76px);
+        font-weight: 300;
+        line-height: 0.96;
+        letter-spacing: -0.055em;
+      }
+      .showcase-heading p {
+        max-width: 410px;
+        margin: 0;
+        color: #c6d4d1;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      .trip-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .trip-card {
+        position: relative;
+        min-height: 510px;
+        overflow: hidden;
+        border: 1px solid #ffffff22;
+        border-radius: 18px;
+        color: #fff;
+        box-shadow: 0 18px 45px #0002;
+        isolation: isolate;
+        cursor: pointer;
+      }
+      .trip-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+          180deg,
+          #0314160a 22%,
+          #03141666 56%,
+          #031416f5 100%
+        );
+      }
+      .trip-card img {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.65s ease, filter 0.65s ease;
+      }
+      .trip-card-content {
+        position: absolute;
+        inset: auto 0 0;
+        padding: 28px;
+      }
+      .trip-card h3 {
+        margin: 0 0 12px;
+        font-size: clamp(25px, 2vw, 32px);
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+      }
+      .trip-card p {
+        min-height: 72px;
+        margin: 0 0 22px;
+        color: #edf3f1;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .trip-card-cta {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        border-bottom: 1px solid var(--peach);
+        color: var(--peach);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .trip-card:hover img,
+      .trip-card:focus-visible img {
+        transform: scale(1.045);
+        filter: brightness(1.06);
+      }
+      .trip-card:focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 4px;
+      }
+      @media (max-width: 1024px) {
+        .showcase-heading {
+          align-items: start;
+          flex-direction: column;
+          gap: 18px;
+        }
+        .trip-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .trip-card {
+          min-height: 480px;
+        }
+      }
+      @media (max-width: 600px) {
+        .travel-showcase {
+          padding: 72px 6vw 82px;
+        }
+        .showcase-heading {
+          margin-bottom: 30px;
+        }
+        .showcase-heading h2 {
+          font-size: 44px;
+        }
+        .trip-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .trip-card {
+          min-height: 460px;
+        }
+        .trip-card-content {
+          padding: 24px;
+        }
+        .trip-card p {
+          min-height: auto;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .trip-card img {
+          transition: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1049,12 +1194,32 @@
       </div>
       <div class="controls" id="controls"></div>
     </main>
-    <section class="journey-stage" id="destinos" aria-label="Experiências em destaque">
-      <article class="journey-slide active" style="background-image:url('https://images.pexels.com/videos/30338259/beach-nordeste-ocean-porto-de-galinhas-30338259.jpeg?auto=compress&dpr=1&h=1200&w=2000')"><div class="journey-content"><span class="journey-kicker">Experiências brasileiras</span><h2>Praias que ficam na memória</h2><p>Águas transparentes, mar calmo e dias que começam sem pressa.</p><div class="journey-tags"><span>Mar</span><span>Descanso</span><span>Família</span></div><a class="btn" href="#planejar">Saiba mais</a></div><div class="journey-collage"><img class="journey-photo" alt="Praia de Porto de Galinhas" src="https://images.pexels.com/videos/30338259/beach-nordeste-ocean-porto-de-galinhas-30338259.jpeg?auto=compress&dpr=1&h=900&w=1260"><img class="journey-photo secondary" alt="Praia de Maragogi" src="https://images.pexels.com/photos/18146825/pexels-photo-18146825.jpeg?auto=compress&cs=tinysrgb&w=1000"></div></article>
-      <article class="journey-slide" style="background-image:url('https://images.pexels.com/photos/27688572/pexels-photo-27688572/free-photo-of-lencois-maranhenses.jpeg?auto=compress&dpr=1&h=1200&w=2000')"><div class="journey-content"><span class="journey-kicker">Natureza sem pressa</span><h2>Dunas, lagoas e horizontes</h2><p>Para respirar fundo, desacelerar e viver paisagens únicas.</p><div class="journey-tags"><span>Aventura</span><span>Natureza</span><span>Fotografia</span></div><a class="btn" href="#planejar">Saiba mais</a></div><div class="journey-collage"><img class="journey-photo" alt="Dunas dos Lençóis Maranhenses" src="https://images.pexels.com/photos/27688572/pexels-photo-27688572/free-photo-of-lencois-maranhenses.jpeg?auto=compress&dpr=1&h=900&w=1260"><img class="journey-photo secondary" alt="Litoral de Natal" src="https://images.pexels.com/videos/28969986/rio-grande-do-norte-28969986.jpeg?auto=compress&dpr=1&h=900&w=1260"></div></article>
-      <article class="journey-slide" style="background-image:url('https://images.pexels.com/videos/30198964/aerial-atlantic-ocean-beach-brazil-30198964.jpeg?auto=compress&dpr=1&h=1200&w=2000')"><div class="journey-content"><span class="journey-kicker">Cidade e mar</span><h2>Novos ângulos do Brasil</h2><p>Cultura, gastronomia e paisagens para chegar e querer ficar.</p><div class="journey-tags"><span>Cultura</span><span>Sabores</span><span>Urbano</span></div><a class="btn" href="#planejar">Saiba mais</a></div><div class="journey-collage"><img class="journey-photo" alt="Vista aérea do Rio de Janeiro" src="https://images.pexels.com/videos/30198964/aerial-atlantic-ocean-beach-30198964.jpeg?auto=compress&dpr=1&h=900&w=1260"><img class="journey-photo secondary" alt="Praia de João Pessoa" src="https://images.pexels.com/photos/20268519/pexels-photo-20268519.jpeg?auto=compress&cs=tinysrgb&w=1000"></div></article>
-      <article class="journey-slide" style="background-image:url('https://images.pexels.com/photos/18146825/pexels-photo-18146825.jpeg?auto=compress&cs=tinysrgb&w=2000')"><div class="journey-content"><span class="journey-kicker">Viagens para compartilhar</span><h2>Mais tempo para estar presente</h2><p>Em casal, em família ou com amigos, cuidamos de cada detalhe.</p><div class="journey-tags"><span>Casais</span><span>Família</span><span>Grupos</span></div><a class="btn" href="#planejar">Saiba mais</a></div><div class="journey-collage"><img class="journey-photo" alt="Praia de Antunes em Maragogi" src="https://images.pexels.com/photos/18146825/pexels-photo-18146825.jpeg?auto=compress&cs=tinysrgb&w=1260"><img class="journey-photo secondary" alt="Praia da Bahia" src="https://images.pexels.com/videos/30602296/4k-drone-shot-bahia-beach-ambience-outdoor-from-drone-30602296.jpeg?auto=compress&dpr=1&h=900&w=1260"></div></article>
-      <div class="journey-dots" id="journeyDots"></div><div class="journey-controls"><button type="button" id="journeyPrev" aria-label="Experiência anterior">←</button><span class="journey-count" id="journeyCount">1 / 4</span><button type="button" id="journeyNext" aria-label="Próxima experiência">→</button></div>
+    <section class="travel-showcase" id="destinos" aria-labelledby="showcase-title">
+      <div class="showcase-heading">
+        <div>
+          <span class="eyebrow">Escolha seu jeito de viajar</span>
+          <h2 id="showcase-title">Experiências para cada momento.</h2>
+        </div>
+        <p>Do descanso à descoberta, cuidamos do roteiro que combina com você.</p>
+      </div>
+      <div class="trip-grid">
+        <a class="trip-card" href="https://wa.me/5511987569836?text=Ol%C3%A1%21%20Vi%20a%20op%C3%A7%C3%A3o%20de%20Praias%20%26%20Resorts%20no%20site%20da%20RM%20Partiu%20Viagens%20e%20gostaria%20de%20receber%20uma%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          <img src="/images/destinos/praias-resorts.webp" width="1400" height="933" loading="lazy" alt="Praia paradisíaca representando viagens para praias e resorts" />
+          <div class="trip-card-content"><h3>Praias &amp; Resorts</h3><p>Nordeste, Caribe e destinos perfeitos para relaxar.</p><span class="trip-card-cta">Quero viajar →</span></div>
+        </a>
+        <a class="trip-card" href="https://wa.me/5511987569836?text=Ol%C3%A1%21%20Vi%20a%20op%C3%A7%C3%A3o%20de%20Orlando%20%26%20Fam%C3%ADlia%20no%20site%20da%20RM%20Partiu%20Viagens%20e%20gostaria%20de%20receber%20uma%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          <img src="/images/destinos/orlando-familia.webp" width="1400" height="933" loading="lazy" alt="Orlando representando viagens em família e parques" />
+          <div class="trip-card-content"><h3>Orlando &amp; Família</h3><p>Parques, diversão e roteiros pensados para toda a família.</p><span class="trip-card-cta">Planejar minha viagem →</span></div>
+        </a>
+        <a class="trip-card" href="https://wa.me/5511987569836?text=Ol%C3%A1%21%20Vi%20a%20op%C3%A7%C3%A3o%20de%20Europa%20%26%20Internacional%20no%20site%20da%20RM%20Partiu%20Viagens%20e%20gostaria%20de%20receber%20uma%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          <img src="/images/destinos/europa-internacional.webp" width="1400" height="2100" loading="lazy" alt="Destino europeu representando roteiros internacionais" />
+          <div class="trip-card-content"><h3>Europa &amp; Internacional</h3><p>Descubra novos países com uma viagem planejada do seu jeito.</p><span class="trip-card-cta">Quero conhecer →</span></div>
+        </a>
+        <a class="trip-card" href="https://wa.me/5511987569836?text=Ol%C3%A1%21%20Vi%20a%20op%C3%A7%C3%A3o%20de%20Serra%20%26%20Romance%20no%20site%20da%20RM%20Partiu%20Viagens%20e%20gostaria%20de%20receber%20uma%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          <img src="/images/destinos/serra-romance.webp" width="1100" height="1463" loading="lazy" alt="Gramado representando viagens românticas para a serra" />
+          <div class="trip-card-content"><h3>Serra &amp; Romance</h3><p>Clima especial, gastronomia e experiências para aproveitar a dois.</p><span class="trip-card-cta">Ver opções →</span></div>
+        </a>
+      </div>
     </section>
     <section class="section destinations-stage" id="destinos-antigo" hidden>
       <div class="destination-heading">
@@ -1419,30 +1584,6 @@
               }),
           ),
         );
-    </script>
-    <script>
-      const journeySlides = [...document.querySelectorAll('.journey-slide')];
-      const journeyDots = document.querySelector('#journeyDots');
-      const journeyCount = document.querySelector('#journeyCount');
-      let journeyCurrent = 0;
-      journeySlides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.setAttribute('aria-label', `Ver experiência ${index + 1}`);
-        dot.addEventListener('click', () => showJourney(index));
-        journeyDots.appendChild(dot);
-      });
-      function showJourney(index) {
-        journeySlides[journeyCurrent].classList.remove('active');
-        journeyDots.children[journeyCurrent].classList.remove('active');
-        journeyCurrent = (index + journeySlides.length) % journeySlides.length;
-        journeySlides[journeyCurrent].classList.add('active');
-        journeyDots.children[journeyCurrent].classList.add('active');
-        journeyCount.textContent = `${journeyCurrent + 1} / ${journeySlides.length}`;
-      }
-      document.querySelector('#journeyPrev').addEventListener('click', () => showJourney(journeyCurrent - 1));
-      document.querySelector('#journeyNext').addEventListener('click', () => showJourney(journeyCurrent + 1));
-      showJourney(0);
     </script>
     <script>
       window.va =
