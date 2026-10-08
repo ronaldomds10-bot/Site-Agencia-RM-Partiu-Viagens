@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Planeje sua viagem | RM PARTIU VIAGENS</title>
+  <meta name="description" content="Descubra quanto reservar por mês para sua próxima viagem, com base no seu orçamento. Sem cadastro.">
+  <link rel="canonical" href="https://rmpartiuviagens.vercel.app/planejar">
+  <meta property="og:title" content="Planeje sua viagem | RM PARTIU VIAGENS">
+  <meta property="og:description" content="Sua próxima viagem começa com um plano. Descubra quanto precisa reservar por mês.">
+  <meta property="og:url" content="https://rmpartiuviagens.vercel.app/planejar">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- shared-styles -->
+  <style>
+    .planner-nav { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; padding:24px 6vw; border-bottom:1px solid var(--line); }
+    .planner-nav a:last-child { color:var(--peach); }
+    .planner { max-width:1060px; margin:auto; padding:64px 24px; }
+    .planner h1 { font-size:clamp(32px,5vw,54px); letter-spacing:-.04em; margin:16px 0; }
+    .planner-intro { color:#d0dcda; max-width:620px; line-height:1.7; }
+    .planner-layout { display:grid; grid-template-columns:1.2fr 1fr; gap:40px; margin-top:36px; align-items:start; }
+    .planner-form { display:grid; grid-template-columns:1fr 1fr; gap:24px 18px; }
+    .planner-field { min-width:0; }
+    .planner-field label { display:block; font-weight:600; font-size:14px; margin-bottom:8px; }
+    .planner-field input { width:100%; min-width:0; min-height:48px; border:1px solid #78918f; border-radius:8px; background:#0c292c; color:#fff; padding:12px; font:inherit; color-scheme:dark; }
+    .planner-field input[aria-invalid="true"] { border-color:#ffbda9; }
+    .planner-field input:disabled { opacity:.55; }
+    .planner-wide { grid-column:1 / -1; }
+    .planner-hint { display:block; margin-top:8px; font-size:13px; line-height:1.5; color:#c5d4d2; }
+    .planner-field .planner-check { display:flex; gap:10px; align-items:center; margin-top:12px; font-size:14px; }
+    .planner-check input { width:20px; height:20px; min-height:20px; padding:0; accent-color:var(--orange); }
+    .planner .btn { cursor:pointer; border:0; white-space:normal; text-align:center; line-height:1.5; }
+    .planner-result { background:var(--cream); color:var(--ink); padding:28px; border-radius:18px; overflow-wrap:anywhere; }
+    .planner-result h2 { margin:0 0 16px; font-size:26px; }
+    .planner-result p { line-height:1.6; }
+    .planner-result dl { margin:24px 0; }
+    .planner-result dt { font-size:14px; margin-top:18px; }
+    .planner-result dd { margin:6px 0 0; font-size:23px; font-weight:700; }
+    .planner-result dd.monthly { font-size:clamp(28px,4vw,38px); }
+    .planner-result .btn { display:flex; justify-content:center; background:#146c40; color:white; }
+    .planner-error { color:#ffbda9; margin:0; line-height:1.6; }
+    .planner-notice { font-size:13px; }
+    .planner-footer { display:flex; flex-wrap:wrap; gap:24px; margin-top:40px; font-size:14px; }
+    .planner a:focus-visible, .planner button:focus-visible, .planner input:focus-visible, .planner-nav a:focus-visible { outline:3px solid var(--orange); outline-offset:4px; }
+    .planner-skip { position:absolute; left:16px; top:-100px; padding:12px; background:var(--cream); color:var(--ink); z-index:10; }
+    .planner-skip:focus { top:12px; }
+    @media(max-width:700px) { .planner { padding:36px 20px; } .planner-layout { grid-template-columns:1fr; gap:28px; } .planner-nav { padding:20px; } .planner-nav .brand { font-size:20px; } }
+    @media(max-width:420px) { .planner-form { grid-template-columns:1fr; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <a class="planner-skip" href="#conteudo">Pular para o planejamento</a>
+  <nav class="planner-nav" aria-label="Navegação principal">
+    <a class="brand" href="/">RM PARTIU VIAGENS</a>
+    <a href="https://wa.me/5511987569836" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </nav>
+  <main class="planner" id="conteudo">
+    <span class="eyebrow">Comece a planejar</span>
+    <h1>Planeje sua viagem</h1>
+    <p class="planner-intro">Sua próxima viagem começa com um plano. Descubra quanto precisa reservar por mês.</p>
+    <p class="planner-hint">Sem cadastro. Os dados ficam apenas nesta página e não são salvos. Todos os campos são obrigatórios, exceto o destino quando ainda não estiver decidido.</p>
+    <noscript><p>Ative o JavaScript para calcular seu planejamento ou fale diretamente pelo WhatsApp.</p></noscript>
+    <div class="planner-layout">
+      <form class="planner-form" id="planner-form" autocomplete="off" novalidate>
+        <div class="planner-field"><label for="origin">Origem</label><input id="origin" name="origin" required maxlength="100" placeholder="Cidade de partida"></div>
+        <div class="planner-field"><label for="destination">Destino</label><input id="destination" name="destination" required maxlength="100" placeholder="Para onde vamos?">
+          <label class="planner-check" for="undecided"><input type="checkbox" id="undecided">Ainda não decidi</label>
+        </div>
+        <div class="planner-field"><label for="travel-date">Mês/ano da viagem</label><input type="month" id="travel-date" name="travelDate" required aria-describedby="date-hint"><small class="planner-hint" id="date-hint">Escolha o mês da partida.</small></div>
+        <div class="planner-field"><label for="travelers">Número de viajantes</label><input type="number" id="travelers" name="travelers" min="1" max="999" step="1" required inputmode="numeric" value="1"></div>
+        <div class="planner-field"><label for="budget">Orçamento total para todos (R$)</label><input id="budget" name="budget" inputmode="decimal" maxlength="16" required placeholder="Ex.: 10.000,00" aria-describedby="money-hint"></div>
+        <div class="planner-field"><label for="saved">Valor reservado (R$)</label><input id="saved" name="saved" inputmode="decimal" maxlength="16" required value="0" aria-describedby="money-hint"></div>
+        <small class="planner-hint planner-wide" id="money-hint">Use reais e até duas casas decimais, como 1500,50. Informe 0 se ainda não reservou nenhum valor.</small>
+        <div class="planner-field planner-wide"><label for="months">Meses para completar a reserva</label><input type="number" id="months" name="months" min="1" max="1200" step="1" required inputmode="numeric" aria-describedby="months-hint"><small class="planner-hint" id="months-hint">Contamos a partir deste mês, terminando antes do mês da viagem. Se a meta já estiver atingida, não há prazo de reserva a cumprir.</small></div>
+        <p class="planner-error planner-wide" id="form-error" role="alert" hidden></p>
+        <button type="submit" class="btn planner-wide" id="calculate" disabled>Calcular meu planejamento</button>
+      </form>
+      <aside class="planner-result" aria-label="Seu planejamento">
+        <div id="result-placeholder"><h2>Uma viagem, um plano.</h2><p>Preencha seu orçamento para descobrir quanto falta e quanto reservar a cada mês.</p></div>
+        <section id="result" hidden tabindex="-1" aria-labelledby="result-title">
+          <h2 id="result-title">Seu planejamento</h2>
+          <p id="trip-summary"></p>
+          <p id="goal-status" role="status"></p>
+          <dl><dt>Orçamento total</dt><dd id="total-output"></dd><dt>Já reservado</dt><dd id="saved-output"></dd><dt>Falta reservar</dt><dd id="remaining-output"></dd><dt>Reserva mensal</dt><dd class="monthly" id="monthly-output"></dd></dl>
+          <p id="rounding-note" class="planner-notice"></p>
+          <a class="btn" id="quote-link" target="_blank" rel="noopener">Solicitar cotação dessa viagem</a>
+        </section>
+        <p class="planner-notice">Planejamento baseado no orçamento informado. Não é cotação nem reserva. Preços e disponibilidade precisam ser confirmados.</p>
+      </aside>
+    </div>
+    <footer class="planner-footer"><a href="/">← Voltar ao início</a><a href="https://www.instagram.com/rmpartiuviagens" target="_blank" rel="noopener">Instagram</a></footer>
+  </main>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    const form = document.querySelector('#planner-form');
+    const field = id => document.getElementById(id);
+    const currency = cents => (cents / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const event = name => window.va('event', { name });
+    let started = false;
+    function currentMonth() {
+      const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit' }).formatToParts(new Date());
+      return parts.find(p => p.type === 'year').value + '-' + parts.find(p => p.type === 'month').value;
+    }
+    field('travel-date').min = currentMonth();
+    // Parse decimal strings into integer cents, without floating-point multiplication.
+    function cents(value) {
+      const text = value.trim();
+      if (!/^(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d{1,2})?$/.test(text)) return null;
+      const [whole, fraction = ''] = text.replaceAll('.', '').split(',');
+      const amount = Number(whole) * 100 + Number(fraction.padEnd(2, '0'));
+      return Number.isSafeInteger(amount) && amount <= 99999999999 ? amount : null;
+    }
+    function invalidateResult() {
+      field('result').hidden = true;
+      field('quote-link').removeAttribute('href');
+      field('result-placeholder').hidden = false;
+      field('form-error').hidden = true;
+      for (const input of form.querySelectorAll('input')) input.removeAttribute('aria-invalid');
+    }
+    form.addEventListener('input', () => {
+      if (!started) { event('planner_started'); started = true; }
+      invalidateResult();
+    });
+    field('undecided').addEventListener('change', () => {
+      field('destination').disabled = field('undecided').checked;
+      field('destination').required = !field('undecided').checked;
+      invalidateResult();
+    });
+    function fail(id, message) {
+      field('form-error').textContent = message;
+      field('form-error').hidden = false;
+      field(id).setAttribute('aria-invalid', 'true');
+      field(id).setAttribute('aria-errormessage', 'form-error');
+      field(id).focus();
+    }
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      invalidateResult();
+      const origin = field('origin').value.trim();
+      const destination = field('undecided').checked ? 'Ainda não decidi' : field('destination').value.trim();
+      const date = field('travel-date').value;
+      const travelers = Number(field('travelers').value);
+      const budget = cents(field('budget').value);
+      const saved = cents(field('saved').value);
+      const months = Number(field('months').value);
+      if (!origin || origin.length > 100) return fail('origin', 'Informe a cidade de origem (até 100 caracteres).');
+      if (!destination || destination.length > 100) return fail('destination', 'Informe o destino ou marque “Ainda não decidi”.');
+      if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(date) || date < currentMonth()) return fail('travel-date', 'Escolha o mês atual ou um mês futuro para a viagem.');
+      if (!Number.isInteger(travelers) || travelers < 1 || travelers > 999) return fail('travelers', 'Informe de 1 a 999 viajantes, sem casas decimais.');
+      if (budget === null || budget <= 0) return fail('budget', 'Informe um orçamento maior que zero, até R$ 999.999.999,99, usando vírgula para os centavos.');
+      if (saved === null) return fail('saved', 'Informe um valor reservado de zero até R$ 999.999.999,99, usando vírgula para os centavos.');
+      if (!Number.isInteger(months) || months < 1 || months > 1200) return fail('months', 'Informe de 1 a 1200 meses, sem casas decimais.');
+      const [year, month] = date.split('-').map(Number);
+      const [nowYear, nowMonth] = currentMonth().split('-').map(Number);
+      const available = (year - nowYear) * 12 + month - nowMonth;
+      const remaining = Math.max(0, budget - saved);
+      if (remaining > 0 && months > available) return fail('months', available === 0 ? 'A viagem é neste mês. Para planejar uma reserva mensal, escolha um mês futuro ou informe a meta já atingida.' : 'O prazo deve terminar antes da viagem. Você tem até ' + available + ' mês(es) para reservar, contando este mês.');
+      const monthly = Math.ceil(remaining / months);
+      const displayDate = date.slice(5) + '/' + date.slice(0, 4);
+      const summary = origin + ' → ' + destination + ' · ' + displayDate + ' · ' + travelers + ' viajante(s)';
+      field('trip-summary').textContent = summary;
+      field('goal-status').textContent = remaining === 0 ? 'Meta atingida! Seu orçamento já está reservado.' : 'Reserve ' + currency(monthly) + ' por mês durante ' + months + ' mês(es).';
+      field('total-output').textContent = currency(budget);
+      field('saved-output').textContent = currency(saved);
+      field('remaining-output').textContent = currency(remaining);
+      field('monthly-output').textContent = currency(monthly);
+      field('rounding-note').textContent = 'Valor mensal arredondado para cima ao centavo. Ajuste a última parcela ao saldo restante.';
+      const message = ['Olá! Gostaria de solicitar cotação dessa viagem.', 'Origem: ' + origin, 'Destino: ' + destination, 'Viagem: ' + displayDate, 'Viajantes: ' + travelers, 'Orçamento total para todos: ' + currency(budget), 'Valor reservado: ' + currency(saved), 'Falta reservar: ' + currency(remaining), 'Prazo: ' + months + ' mês(es)', 'Reserva mensal: ' + currency(monthly), remaining === 0 ? 'Meta atingida.' : '', 'Planejamento baseado no orçamento informado. Não é cotação nem reserva. Preços e disponibilidade precisam ser confirmados.'].filter(Boolean).join('\n');
+      field('quote-link').href = 'https://wa.me/5511987569836?text=' + encodeURIComponent(message);
+      field('result-placeholder').hidden = true;
+      field('result').hidden = false;
+      field('calculate').textContent = 'Recalcular meu planejamento';
+      event('planner_completed');
+      field('result').focus();
+    });
+    field('quote-link').addEventListener('click', () => event('planner_quote_clicked'));
+    field('calculate').disabled = false;
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
